@@ -1,0 +1,148 @@
+.message {
+    display: flex;
+    width: 100%;
+}
+
+.messageSidebar {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.messageChat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url('/src/Assets/chat_bg.jpg');
+    width: 75%;
+    padding: 40px 15px;
+
+    height: 600px;
+}
+
+.messages {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-margin-right: 0;
+    overflow-x: hidden;
+}
+
+.messages::-webkit-scrollbar {
+    width: 3px;
+    /* background: orange; */
+}
+
+.messages::-webkit-scrollbar-track {
+    /* background: #F1F1F1; */
+    /* color of the tracking area */
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #F9A826;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid orange;
+    /* creates padding around scroll thumb */
+}
+
+.personLists {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid black;
+
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    background-color: aliceblue;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.member img {
+    height: 25;
+    width: 25px;
+    margin-right: 10px;
+}
+
+
+
+.my_message {
+    justify-content: flex-end;
+    margin-left: 50%;
+    position: relative;
+}
+
+.my_message:after {
+    top: 0%;
+    right: -1%;
+    position: absolute;
+    content: "";
+    border: 0.4rem solid;
+    border-color: aliceblue transparent transparent aliceblue;
+}
+
+
+.others_msg {
+    justify-content: flex-start;
+    margin-right: 30%;
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    padding: 1.5rem;
+}
+
+.others_msg:after {
+    top: 26%;
+    left: 25px;
+    position: absolute;
+    content: "";
+    border: 0.4rem solid;
+    border-color: #202c33 #202c33 transparent transparent;
+}
+
+.others_msg h4 {
+    background-color: #202c33 !important;
+    /* background-color: #e9edef !important; */
+    color: #e9ede5;
+}
+
+/* 
+.my_message h4 {
+    background-color: #005c4b !important;
+    color: #e9ede5;
+} */
+
+.msg {
+    display: flex;
+    align-items: center;
+    border: 1px saddlebrown;
+    gap: 10px;
+    margin: 5px 12px;
+    border-radius: 5px;
+}
+
+.msg img {
+    height: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    object-fit: cover;
+    background-color: brown;
+    border-radius: 100%;
+}
+
+.msg h4 {
+    background-color: aliceblue;
+    padding: 10px;
+
+}
+
+.message_inp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

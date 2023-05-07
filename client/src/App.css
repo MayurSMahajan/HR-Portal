@@ -1,0 +1,40 @@
+* {
+  font-family: 'Poppins';
+  font-style: normal;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.components {
+  display: flex;
+}
+
+.button {
+
+  box-sizing: border-box;
+
+  /* position: absolute; */
+  width: 118px;
+  height: 40px;
+  left: 0px;
+  font-family: "Poppins";
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 5px;
+  color: white;
+  background: #F9A826;
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

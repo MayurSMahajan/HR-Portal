@@ -1,0 +1,94 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 50px;
+    background: #F1F1F1;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.header_right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header_logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_img {
+    width: 60px;
+    height: 60px;
+}
+
+.noti_img {
+    width: 24px;
+    height: 28px;
+
+}
+
+.profile_img {
+    width: 60px;
+    height: 60px;
+    background: #D9D9D9;
+    border: 1px solid #000000;
+    /* box-shadow: 4px 4px 0px #000000; */
+    border-radius: 100%;
+}
+
+
+.side_nav {
+    background-color: rgba(217, 217, 217, 0.17);
+    width: 200px;
+    padding: 50px 30px 50px 30px;
+    height: 74vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.sidenav_items_div {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.nav_item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    color: #000000;
+}
+
+
+.active {
+    color: #F9A826;
+    background-color: #FFE6BF;
+    border-radius: 5px;
+}
+
+.side_nav_img {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+}
+
+.nav_item h3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 40px;
+
+
+}
