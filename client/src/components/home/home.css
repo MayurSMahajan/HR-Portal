@@ -1,4 +1,45 @@
-* {
-  margin: 0;
-  padding: 0;
+.home-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.job-postings-container{
+  margin: 2%;
+  width: 60vw;  
+}
+
+/* ------------------------ Header Section ------------------------*/
+
+.job-postings-header-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-postings-heading{
+  font-size: 1.3em;
+}
+
+.job-postings-view-all{
+  font-weight: 300;
+}
+
+/* ------------------------ Navigation Section ------------------------*/
+
+.job-postings-navigation{
+  display: flex;
+}
+
+.job-postings-nav-links{
+  cursor: pointer;
+  margin-right: 20px;
+  padding: 10px 0px;
+  border-bottom: 2px solid transparent;
+}
+
+.selected{
+  transition: ease-out 0.45s;
+  border-bottom: 2px solid black;
 }
