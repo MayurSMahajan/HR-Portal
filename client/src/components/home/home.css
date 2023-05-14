@@ -1,45 +1,147 @@
-.home-container{
+.home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 5%;
 }
 
-.job-postings-container{
+.job-postings-container {
   margin: 2%;
-  width: 60vw;  
+  width: 60vw;
 }
 
 /* ------------------------ Header Section ------------------------*/
 
-.job-postings-header-section{
+.job-postings-header-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.job-postings-heading{
+.job-postings-heading {
   font-size: 1.3em;
 }
 
-.job-postings-view-all{
+.job-postings-view-all {
   font-weight: 300;
 }
 
 /* ------------------------ Navigation Section ------------------------*/
 
-.job-postings-navigation{
+.job-postings-navigation {
   display: flex;
 }
 
-.job-postings-nav-links{
+.job-postings-nav-links {
   cursor: pointer;
   margin-right: 20px;
   padding: 10px 0px;
   border-bottom: 2px solid transparent;
 }
 
-.selected{
+.selected {
   transition: ease-out 0.45s;
   border-bottom: 2px solid black;
+}
+
+/* ------------------------ Job Posting Card ---------------------------*/
+
+.job-postings-card-container {
+  padding: 0 20px;
+  background-color: #ffedd1;
+  border-radius: 10px;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.job-postings-card-container:hover {
+  transition: ease 0.1s;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.job-postings-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-postings-card-header > h3 {
+  font-weight: 300;
+}
+
+.job-postings-card-action-item {
+  background-color: #F3D1FF ;
+  border: 1px solid black;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  transition: ease-in-out 0.1s;
+}
+
+.job-postings-card-actions-container {
+  display: flex;
+}
+
+.job-postings-stats-container {
+  display: flex;
+}
+
+.job-postings-card-body{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0;
+}
+
+.divider{
+  width: 2px;
+  margin: 10px 0px;
+  background-color: #dac7a9;
+}
+
+.job-postings-stats-text-heading{
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-bottom: 1px;
+}
+
+.job-postings-stats-text-subtitle{
+  font-weight: 300;
+  color: #444;
+  margin-top: 0; 
+}
+
+.job-postings-stats-container{
+  display: flex;
+  width: 49%;
+}
+
+.job-postings-stats-card {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  justify-content: space-evenly;
+}
+
+.job-postings-metadata-container{
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.job-postings-metadata-card{
+  text-align: center;
+}
+
+.job-postings-metadata-text-heading{
+  font-weight: 500;
+  font-size: 1.2em;
+  margin-bottom: 0.75px;
+}
+.job-postings-metadata-text-subtitle{
+  margin-top: 0px;
 }
