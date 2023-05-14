@@ -51,6 +51,7 @@
   background-color: #ffedd1;
   border-radius: 10px;
   border: 2px solid black;
+  margin-bottom: 16px;
   box-shadow: 4px 4px 0px #000000;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .job-postings-card-header > h3 {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .job-postings-card-action-item {
