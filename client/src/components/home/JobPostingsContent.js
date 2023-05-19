@@ -1,42 +1,17 @@
 import React from "react";
 import "./home.css";
 import JobPostingsCard from "./JobPostingCard";
-
-const mockActiveJobsList = [
-  {
-    "title": "Senior Software Fullstack Engineer",
-    "date": "05/05/2023",
-    "budget": "$50k - $75k",
-    "applicants":"121",
-    "shortlisted": "15",
-    "interviewed":"6"
-  },
-  {
-    "title": "Senior Software Fullstack Engineer",
-    "date": "05/05/2023",
-    "budget": "$50k - $75k",
-    "applicants":"121",
-    "shortlisted": "15",
-    "interviewed":"6"
-  },
-  {
-    "title": "Senior Software Fullstack Engineer",
-    "date": "05/05/2023",
-    "budget": "$50k - $75k",
-    "applicants":"121",
-    "shortlisted": "15",
-    "interviewed":"6"
-  }
-];
+import { useSelector } from 'react-redux';
 
 const JobPostingsContent = ({ jobPostingsFlag }) => {
     console.log(jobPostingsFlag);
+    const postingsList = useSelector((state) => state.postings.postingsList)
   return (
     <div className="job-postings-content-container">
       {jobPostingsFlag ? (
         <div className="active-job-postings-container">
           
-            {mockActiveJobsList.map((item, index) => (
+            {postingsList.map((item, index) => (
               <JobPostingsCard key={index} jobPosting={item} />
             ))}
           
