@@ -11,8 +11,8 @@ const JobPostingsContent = ({ jobPostingsFlag }) => {
       {jobPostingsFlag ? (
         <div className="active-job-postings-container">
           
-            {postingsList.map((item, index) => (
-              <JobPostingsCard key={index} jobPosting={item} />
+            {postingsList.map((item) => (
+              <JobPostingsCard key={item.id} {...item} />
             ))}
           
         </div>

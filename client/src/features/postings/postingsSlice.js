@@ -9,10 +9,13 @@ export const postingsSlice = createSlice({
   name: 'postings',
   initialState,
   reducers: {
+    removeItem: (state, actions) => {
+        const itemId = actions.payload;
+        state.postingsList = state.postingsList.filter((item) => item.id !== itemId);
+        console.log(state.postingsList);
+      },
   },
 })
 
-// // Action creators are generated for each case reducer function
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
+export const {  removeItem } = postingsSlice.actions;
 export default postingsSlice.reducer
