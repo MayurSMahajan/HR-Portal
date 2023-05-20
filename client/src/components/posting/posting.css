@@ -14,7 +14,6 @@
 .posting_card{
     background-color: #EBEAEA;
     padding: 10px 40px;
-    width: 70vw;
     border-radius: 10px;
 }
 
@@ -68,4 +67,47 @@
     font-size: 1em;
     color: #222;
     text-align: justify;
+}
+
+/* ------------------------------------- Posting Card Ends -------------------------------------------*/
+/* ------------------------------------- Candidates Section ------------------------------------------*/
+
+.candidates-section{
+    margin: 30px 0px;
+}
+
+.candidates-card{
+    padding: 5px 10px;
+    background-color: #dedede;
+    border-radius: 10px;
+    width: 240px;
+}
+
+
+.candidate-info-container{
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.candidate-card-key{
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+
+.badges-container{
+    display: flex;
+}
+
+.badge-card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.badge-icon{
+    height: 28px;
+    width: 28px;
 }
