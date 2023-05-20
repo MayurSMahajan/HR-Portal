@@ -49,16 +49,15 @@
 
 .job-postings-card-container {
   padding: 0 20px;
-  background-color: #faeeda;
+  background-color: #EDEDED;
   border-radius: 10px;
   border: 2px solid black;
   margin-bottom: 16px;
-  box-shadow: 4px 4px 0px #000000;
 }
 
 .job-postings-card-container:hover {
   transition: ease 0.1s;
-  box-shadow: none;
+  box-shadow: 4px 4px 0px #000000;
 }
 
 .job-postings-card-header {
@@ -72,7 +71,7 @@
 }
 
 .job-postings-card-action-item {
-  background-color: #e0cfb8 ;
+  background-color: #e0e0e0 ;
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -101,7 +100,7 @@
 .divider{
   width: 2px;
   margin: 10px 0px;
-  background-color: #dac7a9;
+  background-color: #dedede;
 }
 
 .job-postings-stats-text-heading{
