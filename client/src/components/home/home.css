@@ -56,7 +56,8 @@
 }
 
 .job-postings-card-container:hover {
-  transition: ease 0.1s;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
   box-shadow: 4px 4px 0px #000000;
 }
 

@@ -1,177 +1,202 @@
 .postings_container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 80px;
-    width: 68vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 80px;
+  width: 68vw;
 }
 
-.postings-heading{
-    font-size: 1.3em;
+.secondary-btn {
+    padding: 20px;
+    text-align: center;
+    font-family: "Poppins";
+    font-weight: 700;
+    border: 1px solid black;
+    color: #f9a826;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000000;
+    transition: 0.25s ease-in-out;
+}
+  
+.secondary-btn:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.postings-heading {
+  font-size: 1.3em;
 }
 
 /* ------------------------------------- Posting Card ------------------------------------------------*/
 
-.posting_card{
-    background-color: #EBEAEA;
-    padding: 10px 40px;
-    border-radius: 10px;
+.posting_card {
+  background-color: #ebeaea;
+  padding: 10px 40px;
+  border-radius: 10px;
 }
 
-.card_heading{
-    font-size: 1.2em;
-    font-weight: 900;
+.card_heading {
+  font-size: 1.2em;
+  font-weight: 900;
 }
 
 /*------------------------- Metadata Card Container ---------------------------*/
 
-.metadata_cards_container{
-    display: grid;
-    grid-template-columns: 50% auto;
+.metadata_cards_container {
+  display: grid;
+  grid-template-columns: 50% auto;
 }
 
-.metadata_section{
-    display: flex;
-    align-items: center;
+.metadata_section {
+  display: flex;
+  align-items: center;
 }
 
-.metadata_card{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+.metadata_card {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
-.skill_text{
-    font-weight: 500;
-    margin-left: 20px;
+.skill_text {
+  font-weight: 500;
+  margin-left: 20px;
 }
 
-.metadata_icon{
-    color: #555;
-    margin-right: 10px;
-    height: 22px;
+.metadata_icon {
+  color: #555;
+  margin-right: 10px;
+  height: 22px;
 }
 
 /*--------------------------- Job Description --------------------------------*/
 
-.description_card{
-    margin-top: 20px;
+.description_card {
+  margin-top: 20px;
 }
 
-.description_key{
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-bottom: 8px;
+.description_key {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-.description_value{
-    font-size: 1em;
-    color: #222;
-    text-align: justify;
+.description_value {
+  font-size: 1em;
+  color: #222;
+  text-align: justify;
 }
 
 /* ------------------------------------- Posting Card Ends -------------------------------------------*/
 /* ------------------------------------- Candidates Section ------------------------------------------*/
 
-.candidates-section{
-    margin: 30px 0px;
+.candidates-section {
+  margin: 30px 0px;
 }
 
-.candidates-type-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.candidates-type-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.candidates-container-wrapper{
-    display: flex;
-    width: 68vw;
+.candidates-container-wrapper {
+  display: flex;
+  width: 68vw;
 }
 
-.candidates-container{
-    display: flex;
-    width: 68vw;
-    padding: 16px 0px;
-    overflow-x: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+.candidates-container {
+  display: flex;
+  width: 68vw;
+  padding: 16px 0px;
+  overflow-x: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .candidates-container::-webkit-scrollbar {
-    display: none; /* Chrome and Safari */
-  }
-
-.candidates-card{
-    padding: 5px 10px;
-    margin-right: 30px;
-    background-color: #dedede;
-    border-radius: 10px;
-    min-width: 240px;
-    height: 280px;
-    display: block;
-    border: 1.3px solid black;
-    box-shadow: 4px 4px 0px #000000;
-    transition: 0.25s ease-in-out;
+  display: none; /* Chrome and Safari */
 }
 
-.candidates-card:hover{
-    box-shadow: none;
+.candidates-card {
+  padding: 5px 10px;
+  margin-right: 30px;
+  background-color: #dedede;
+  border-radius: 10px;
+  min-width: 240px;
+  height: 280px;
+  display: block;
+  border: 1.3px solid black;
+  box-shadow: 4px 4px 0px #000000;
+  transition: 0.25s ease-in-out;
 }
 
-.candidates-card p{
-    margin: 8px 4px;
+.candidates-card:hover {
+  box-shadow: none;
+  cursor: pointer;
 }
 
+.candidates-card p {
+  margin: 8px 4px;
+}
 
-.candidate-info-container{
+.candidate-info-container {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.candidate-card-key {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.badges-container {
+  display: flex;
+}
+
+.badge-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.badge-icon {
+  height: 28px;
+  width: 28px;
+}
+
+.view-all-card {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+}
+
+.view-all-btn {
+  display: flex;
+  height: 40px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.view-all-btn:hover {
+  border-bottom: 2px solid black;
+  transition: 0.125s ease-in-out;
+}
+
+.view-all-text {
+  margin-right: 10px;
+}
+
+.secondary-btn-container{
     display: flex;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
-.candidate-card-key{
-    font-weight: 600;
-    margin-right: 10px;
-}
-
-
-.badges-container{
-    display: flex;
-}
-
-.badge-card{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-right: 12px;
-}
-
-.badge-icon{
-    height: 28px;
-    width: 28px;
-}
-
-.view-all-card{
-    height: 280px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    min-width: 200px;
-}
-
-.view-all-btn{
-    display: flex;
-    height: 40px;
-    cursor: pointer;
-    align-items: center;
-}
-
-.view-all-btn:hover{
-    border-bottom: 2px solid black;
-}
-
-.view-all-text{
-    margin-right: 10px;
+    margin-top: 60px;
 }
 
 

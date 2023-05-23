@@ -13,10 +13,7 @@
 }
 
 .button {
-
   box-sizing: border-box;
-
-  /* position: absolute; */
   width: 118px;
   height: 40px;
   left: 0px;

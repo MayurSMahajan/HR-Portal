@@ -29,14 +29,8 @@ const PostingDetail = () => {
           <CandidatesCard />
           <ViewAllCard />
         </div>
-        <div className="candidates-type-container">
-          <h3 className="postings-heading">Top Candidates</h3>
-        </div>
-        <div className="candidates-container">
-          <CandidatesCard />
-          <CandidatesCard />
-          <CandidatesCard />
-          <ViewAllCard />
+        <div className="secondary-btn-container">
+          <span className="secondary-btn">View More Candidates</span>
         </div>
       </div>
     </div>
