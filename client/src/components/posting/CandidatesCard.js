@@ -39,6 +39,10 @@ const CandidatesCard = () => {
           ))}
         </div>
       </div>
+      <div className="candidate-card-action">
+        <p className="candidate-secondary-btn">Reject</p>
+        <p className="candidate-primary-btn">Interview</p>
+      </div>
     </div>
   );
 };

@@ -7,22 +7,22 @@
 }
 
 .secondary-btn {
-    padding: 20px;
-    text-align: center;
-    font-family: "Poppins";
-    font-weight: 700;
-    border: 1px solid black;
-    color: #f9a826;
-    background: white;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 4px 4px 0px #000000;
-    transition: 0.25s ease-in-out;
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  border: 1px solid black;
+  color: #f9a826;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #000000;
+  transition: 0.25s ease-in-out;
 }
-  
+
 .secondary-btn:hover {
-    box-shadow: none;
-    cursor: pointer;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .postings-heading {
@@ -123,7 +123,7 @@
 .candidates-card {
   padding: 5px 10px;
   margin-right: 30px;
-  background-color: #dedede;
+  background-color: #f0f0f0;
   border-radius: 10px;
   min-width: 240px;
   height: 280px;
@@ -135,7 +135,6 @@
 
 .candidates-card:hover {
   box-shadow: none;
-  cursor: pointer;
 }
 
 .candidates-card p {
@@ -151,6 +150,35 @@
 .candidate-card-key {
   font-weight: 600;
   margin-right: 10px;
+}
+
+.candidate-card-action {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px;
+  margin-top: 16px;
+}
+
+.candidate-secondary-btn {
+  padding: 4px;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  color: maroon;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.candidate-primary-btn{
+  padding: 4px;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  color: #f9a826;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
 }
 
 .badges-container {
@@ -193,10 +221,8 @@
   margin-right: 10px;
 }
 
-.secondary-btn-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
+.secondary-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
 }
-
-
