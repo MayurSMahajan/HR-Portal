@@ -6,13 +6,19 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../../features/postings/postingsSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const JobPostingsCard = ({ id, title, date, budget, applicants, shortlisted, interviewed }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const navigateToPostingDetail = () => {
+    navigate('/posting');
+  }
 
   return (
-    <div className="job-postings-card-container">
+    <div className="job-postings-card-container" onClick={navigateToPostingDetail}>
       <div className="job-postings-card-header">
         <h3>{title}</h3>
         <div className="job-postings-card-actions-container">

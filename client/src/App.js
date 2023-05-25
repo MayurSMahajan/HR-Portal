@@ -7,6 +7,7 @@ import Home from './components/home/Home';
 import Jobs from './components/jobs/Jobs';
 import Message from './components/messages/Message';
 import './App.css';
+import PostingDetail from './components/posting/PostingDetail';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/home" element={<Home />} />
                   <Route path="/job" element={<Jobs />} />
+                  <Route path="/posting" element={<PostingDetail />} />
                   <Route path="/messages" element={<Message />} />
                 </Routes>
               </div>
