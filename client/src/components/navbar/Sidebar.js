@@ -4,7 +4,7 @@ import homeicon from '../../assets/icons/homeicon.png'
 import job from '../../assets/icons/jobsicon.png'
 import messageicon from '../../assets/icons/messageicon.png'
 import { useNavigate } from 'react-router-dom'
-import { DashboardContext } from '../../context/context'
+import { DashboardContext } from '../../context'
 
 const Sidebar = () => {
 

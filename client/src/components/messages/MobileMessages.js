@@ -2,23 +2,19 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import './message.css'
 import { io } from "socket.io-client";
 import axios from 'axios'
-import Loading from '../utils/Loader/Loading';
-import MemberList from './MemberList';
-import MobileMessages from './MobileMessages';
 import { BASE_URL } from '../utils/util';
 import { DashboardContext, MessageContext, UserContext } from '../../context';
 
 
-const Message = () => {
-
+const MobileMessages = () => {
     const { user, Token } = useContext(UserContext)
-    const { Messages, setMessages, loadingMembers, loadingMessages, CurrentChatID } = useContext(MessageContext)
-    const { innerWidth } = useContext(DashboardContext)
+    const { Messages, setMessages, mobileChatClicked, CurrentChatID, setMobileChatClicked } = useContext(MessageContext)
 
     const socket = useRef();
     const messagesRef = useRef();
     const [InpMessage, setInpMessage] = useState('')
     const [arrivalMessage, setArrivalMessage] = useState(null);
+    const { innerWidth } = useContext(DashboardContext)
 
     useEffect(() => {
         if (user) {
@@ -73,45 +69,37 @@ const Message = () => {
         // eslint-disable-next-line
     }, [Messages]);
 
+    const handelMobileMessages = () => {
+        if (innerWidth < 400) {
+            // navigate(`/chat/${id}`)
+            setMobileChatClicked(false)
+        }
+    }
     return (
-        <div className='message'>
-            {
-                loadingMembers || loadingMessages ?
-                    <Loading />
-                    :
-                    innerWidth > 400 ?
-                        <>
-                            <MemberList />
-                            <div className="messageChat" >
-                                <div className='messages' ref={messagesRef}>
-                                    {Messages?.length === 0 ?
-                                        <div>No Messages to show</div>
-                                        :
-                                        Messages && Messages?.map((val) => (
-                                            <div className={val.from === user?._id ? 'my_message msg' : 'others_msg msg'}>
-                                                <span className='sp'>
-                                                </span>
+        <div className={mobileChatClicked ? "visible" : "none"} >
+            <button className='back_btn' onClick={handelMobileMessages} >back</button>
+            <div className='mobile_chat_box' >
 
-                                                <h4>{val.message}</h4>
-                                            </div>
-                                        ))}
-                                </div>
-                                <div className='message_inp'>
-                                    <input type='text' className='input' value={InpMessage} onChange={(a) => setInpMessage(a.target.value)} />
-                                    <button className='button' onClick={() => handelSendMessage()} >Send</button>
-                                </div>
-                            </div>
-
-                        </>
+                <div className='messages' ref={messagesRef}>
+                    {Messages?.length === 0 ?
+                        <div>No Messages to show</div>
                         :
-                        <>
-                            <MemberList />
-                            <MobileMessages />
-                        </>
-            }
+                        Messages && Messages?.map((val) => (
+                            <div className={val.from === user?._id ? 'my_message msg' : 'others_msg msg'}>
+                                <span className='sp'>
+                                </span>
 
+                                <h4>{val.message}</h4>
+                            </div>
+                        ))}
+                </div>
+                <div className='message_inp'>
+                    <input type='text' className='input' value={InpMessage} onChange={(a) => setInpMessage(a.target.value)} />
+                    <button className='button' onClick={() => handelSendMessage()} >Send</button>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default Message
+export default MobileMessages

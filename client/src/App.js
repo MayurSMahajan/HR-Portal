@@ -1,4 +1,4 @@
-import {DashboardDataProvider} from './context/context';
+import { DashboardDataProvider, MessageDataProvider, UserDataProvider } from './context';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Dashboard from './screens/dashboard/Dashboard';
 import Header from './components/navbar/Header';
@@ -12,8 +12,10 @@ import PostingDetail from './components/posting/PostingDetail';
 function App() {
   return (
     <div>
-      <DashboardDataProvider>
-      <Router>
+      <UserDataProvider>
+        <DashboardDataProvider>
+          <MessageDataProvider>
+            <Router>
               <div className='header_sidebar'>
                 <Header />
               </div>
@@ -28,7 +30,9 @@ function App() {
                 </Routes>
               </div>
             </Router>
-      </DashboardDataProvider>
+          </MessageDataProvider>
+        </DashboardDataProvider>
+      </UserDataProvider>
     </div>
   );
 }

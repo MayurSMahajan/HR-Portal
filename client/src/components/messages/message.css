@@ -1,5 +1,6 @@
 .message {
     display: flex;
+    height: 100px;
     width: 100%;
 }
 
@@ -13,11 +14,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: url('/src/Assets/chat_bg.jpg');
+    background: url('/src/assets/chat_bg.jpg');
     width: 75%;
     padding: 40px 15px;
-
     height: 600px;
+}
+
+.mobile_chat_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url('/src/assets/chat_bg.jpg');
+    width: 75%;
+    padding: 40px 15px;
+    height: 100vh;
 }
 
 .messages {
@@ -93,11 +103,11 @@
     font-size: 1rem;
     position: relative;
     display: inline-block;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
 }
 
 .others_msg:after {
-    top: 26%;
+    top: 0%;
     left: 25px;
     position: absolute;
     content: "";
@@ -145,4 +155,88 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.search_box {
+    display: flex;
+}
+
+.search_input {
+    width: 80%;
+    line-height: 40px;
+    font-size: 16px;
+    margin: 8px 0;
+    padding: 0 20px;
+    background: #F1F1F1;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+}
+
+@media (max-width: 800px) {
+
+    /* .messageSidebar {
+        width: 30%;
+        margin: 10px;
+    } */
+    .messageChat {
+        height: 90vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .messageSidebar {
+        width: 40%;
+    }
+
+    .mobile_chat_box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 100vh;
+    }
+
+    .header {
+        position: fixed;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .messageSidebar {
+        margin-top: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile_chat_box {
+        height: 80vh;
+    }
+
+    .back_btn {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        position: fixed;
+    }
+
+    .search_box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .personLists {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .messageChat {
+        display: none;
+    }
 }
