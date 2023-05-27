@@ -6,6 +6,9 @@
     height: 50px;
     background: #F1F1F1;
     border-bottom: 1px solid #CCCCCC;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 .header_right {
@@ -28,7 +31,6 @@
 .noti_img {
     width: 24px;
     height: 28px;
-
 }
 
 .profile_img {
@@ -43,33 +45,30 @@
 
 .side_nav {
     background-color: rgba(217, 217, 217, 0.17);
-    width: 200px;
-    padding: 50px 30px 50px 30px;
+    min-width: 180px;
+    padding: 50px 30px;
     height: 74vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .sidenav_items_div {
     display: flex;
     flex-direction: column;
-
 }
 
 .nav_item {
     display: flex;
+    height: 60px;
     align-items: center;
     gap: 5px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     margin-bottom: 20px;
-
     color: #000000;
 }
-
 
 .active {
     color: #F9A826;
@@ -89,6 +88,45 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 40px;
+}
 
+@media (max-width: 1100px) {
+    .side_nav {
+        min-width: 150px;
+    }
+}
 
+.collapse_sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    /* Sidebar starts offscreen */
+    width: 180px;
+    background-color: #fff;
+    transition: left 0.3s ease;
+
+    /* background-color: rgba(217, 217, 217, 0.17); */
+    padding: 50px 30px;
+    height: 74vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.none {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+@media (max-width: 400px) {
+    .collapse_sidebar {
+        width: 140px;
+        padding: 20px 10px;
+        justify-content: space-between;
+        z-index: 4;
+    }
 }
