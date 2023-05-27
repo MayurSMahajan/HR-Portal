@@ -8,6 +8,7 @@ import Jobs from './components/jobs/Jobs';
 import Message from './components/messages/Message';
 import './App.css';
 import PostingDetail from './components/posting/PostingDetail';
+import AllCandidates from './components/all_candidates/AllCandidates';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                   <Route path="/home" element={<Home />} />
                   <Route path="/job" element={<Jobs />} />
                   <Route path="/posting" element={<PostingDetail />} />
+                  <Route path="/posting/all" element={<AllCandidates/>} />
                   <Route path="/messages" element={<Message />} />
                 </Routes>
               </div>
