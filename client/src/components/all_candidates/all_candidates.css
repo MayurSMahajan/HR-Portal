@@ -1,93 +1,24 @@
 .all-candidate-container{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px 80px;
-  width: 68vw;
+    padding: 3.5% 5%;
+}
+
+.all-candidate-header{
+    display: flex;
+    align-items: center;
+    gap: 100px;
 }
 
 .all-candidate-heading{
-    font-size: 1.1em;
-}
-
-/* ----------------------- Horizontal Candidate Card------------------*/
-
-.hr-candidate-card-container{
-    display: grid;
-    grid-template-columns: 10% auto auto 37.5% 20%;
-    width: 62vw;    
-    padding: 10px 20px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    border: 1px solid black;
-    box-shadow: 4px 4px 0px #000000;
-    transition: 0.25s ease-in-out;
-}
-
-.hr-candidate-card-container:hover{
-    box-shadow: none;
-}
-
-.hr-candidate-key{
+    font-size: 1.2em;
     font-weight: 500;
-    font-size: 1.05em;
 }
 
-.hr-candidate-value{
-    font-weight: 400;
-    font-size: 1em;
-}
-
-.hr-candidate-actions{
+.all-candidate-body{
+    padding: 20px 10px;
     display: flex;
-    justify-content: space-evenly;
-    column-gap: 30px;
-    align-items: center;
+    justify-content: center;
 }
 
-.hr-candidate-skills p{
-    display: block;
-}
-
-.hr-candidate-skills{
-    display: flex;
-    flex-direction: column;
-
-}
-
-.hr-candidate-skills-listview{
-    display: flex;
-    align-items: center;
-}
-
-.skills-text{
-    margin-bottom: 12.8px;
-}
-
-.badge-text{
-    margin: 0;
-}
-
-.hr-candidate-secondary-btn{
-  padding: 4px;
-  text-align: center;
-  font-family: "Poppins";
-  font-weight: 700;
-  color: maroon;
-  cursor: pointer;
-  transition: 0.25s ease-in-out;
-}
-
-.hr-candidate-primary-btn{
-    padding: 4px;
-    text-align: center;
-    font-family: "Poppins";
-    font-weight: 700;
-    color: #f9a826;
-    cursor: pointer;
-    transition: 0.25s ease-in-out;
-}
-
-.hr-candidate-primary-btn:hover, .hr-candidate-secondary-btn:hover{
-    font-weight: 600;
+.candidate-card-container{
+    display: flex;    
 }
