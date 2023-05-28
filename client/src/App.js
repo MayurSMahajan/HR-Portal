@@ -6,6 +6,7 @@ import Jobs from './components/jobs/Jobs';
 import Message from './components/messages/Message';
 import './App.css';
 import PostingDetail from './components/posting/PostingDetail';
+import AddPosting from './components/add_posting/AddPosting';
 import AllCandidates from './components/all_candidates/AllCandidates';
 import Auth from './layout/Auth';
 import Main from './layout/Main';
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/login" element={<Auth Component={Login} />} />
                 <Route path="/posting" element={<PostingDetail />} />
                 <Route path="/posting/all" element={<AllCandidates />} />
+                <Route path="/posting/add" element={<AddPosting />} />
                 <Route path="/register" element={<Auth Component={Register} />} />
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/home" element={<Main Component={Home} />} />
