@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     height: 90vh;
+    width: 100%;
 }
 
 .login_info {
@@ -75,6 +76,7 @@ body {
 .per_info img {
     height: 80px;
     border-radius: 50%;
+
 
 }
 
@@ -195,6 +197,7 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
+    padding: 0 5px;
 }
 
 .auth_button:hover {

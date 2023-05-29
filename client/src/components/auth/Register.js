@@ -1,7 +1,7 @@
 /* eslint-disable */
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import register from '../../assets/register.png'
 import { ToggleButtonGroup, ToggleButton } from '@mui/material'
 import { BASE_URL } from '../utils/util'
@@ -12,6 +12,7 @@ const Register = () => {
     const [Password, setPassword] = useState()
     const [Role, setRole] = useState()
 
+    const navigate = useNavigate()
     const handleChange = (event, value) => {
         setRole(value)
     };
@@ -20,13 +21,14 @@ const Register = () => {
             name: Name,
             email: Email,
             password: Password,
-            Role
+            role: Role
         }
         console.log(dataObjs)
-        axios.post(`${BASE_URL}/auth/register`, dataObjs)
+        axios.post(`${BASE_URL}/api/hr/signup`, dataObjs)
             .then((data) => {
                 console.log(data)
                 alert("registered succesfully")
+                navigate('/login')
             })
             .catch((err) => console.log(err))
     }

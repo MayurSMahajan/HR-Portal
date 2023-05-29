@@ -15,11 +15,11 @@ import Register from './components/auth/Register';
 function App() {
   return (
     <>
-      <UserDataProvider>
-        <DashboardDataProvider>
-          <MessageDataProvider>
+      <Router>
+        <UserDataProvider>
+          <DashboardDataProvider>
+            <MessageDataProvider>
 
-            <Router>
               <Routes>
                 <Route path="/login" element={<Auth Component={Login} />} />
                 <Route path="/posting" element={<PostingDetail />} />
@@ -30,10 +30,10 @@ function App() {
                 <Route path="/job" element={<Main Component={Jobs} />} />
                 <Route path="/messages" element={<Main Component={Message} />} />
               </Routes>
-            </Router>
-          </MessageDataProvider>
-        </DashboardDataProvider>
-      </UserDataProvider>
+            </MessageDataProvider>
+          </DashboardDataProvider>
+        </UserDataProvider>
+      </Router>
     </ >
   );
 }

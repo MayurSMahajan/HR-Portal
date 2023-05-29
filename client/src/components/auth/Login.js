@@ -18,13 +18,13 @@ const Login = () => {
             password: Password,
         }
         console.log(dataObjs)
-        if (!user) axios.post(`${BASE_URL}/auth/login`, dataObjs)
+        if (!user) axios.post(`${BASE_URL}/api/hr/login`, dataObjs)
             .then((data) => {
                 console.log(data)
                 setUser(data.data.user)
                 setToken(data.data.token)
                 localStorage.setItem('token', data.data.token)
-                navigate('/')
+                navigate('/home')
             })
             .catch((err) => {
                 console.log(err.response.data)
@@ -33,7 +33,9 @@ const Login = () => {
     }
 
 
-
+    if (user) {
+        return navigate('/home')
+    }
     return (
         <div className='login'>
             <div className='login_info'>
