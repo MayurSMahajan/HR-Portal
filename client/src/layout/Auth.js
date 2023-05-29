@@ -4,9 +4,7 @@ import Header from '../components/navbar/Header'
 const Auth = ({ Component }) => {
     return (
         <div className='App'>
-            <div className='header_sidebar'>
-                <Header />
-            </div>
+            <Header />
             <div className='components'>
                 <Component />
             </div>

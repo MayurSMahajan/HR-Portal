@@ -20,9 +20,11 @@ export const MessageDataProvider = ({ children }) => {
                 headers: { 'x-access-token': token }
             };
 
-            const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
-            console.log("mess", response.data.response);
-            return response.data.response;
+            if (false) {
+                const response = await axios.get(`${BASE_URL}/chat/get-message/${CurrentChatID}`, config);
+                console.log("mess", response.data.response);
+                return response.data.response;
+            }
         }
     });
 
@@ -32,10 +34,12 @@ export const MessageDataProvider = ({ children }) => {
             headers: { 'x-access-token': token }
         };
 
-        const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
-        console.log("mem", response.data.members);
-        setCurrentChatID(response.data.members[0]?._id);
-        return response.data.members;
+        if (false) {
+            const response = await axios.get(`${BASE_URL}/chat/get-members`, config);
+            console.log("mem", response.data.members);
+            setCurrentChatID(response.data.members[0]?._id);
+            return response.data.members;
+        }
     });
 
     const [Members, setMembers] = useState(members);

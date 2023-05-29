@@ -73,10 +73,10 @@ const Sidebar = () => {
                             <img className='side_nav_img' src={job} alt='logo' />
                             <h3>Explore</h3>
                         </button>
-                        <button onClick={() => handelClick(2, '/messages')} className={section === 2 ? ' nav_item active' : 'nav_item'}>
+                        {/* <button onClick={() => handelClick(2, '/messages')} className={section === 2 ? ' nav_item active' : 'nav_item'}>
                             <img className='side_nav_img' src={messageicon} alt='logo' />
                             <h3>Messaging</h3>
-                        </button>
+                        </button> */}
                     </div>
                     <div >
                         <p>Refer and Win</p>
