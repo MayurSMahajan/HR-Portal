@@ -2,7 +2,6 @@ import { DashboardDataProvider, MessageDataProvider, UserDataProvider } from './
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Dashboard from './screens/dashboard/Dashboard';
 import Home from './components/home/Home';
-import Jobs from './components/jobs/Jobs';
 import Message from './components/messages/Message';
 import './App.css';
 import PostingDetail from './components/posting/PostingDetail';
@@ -12,6 +11,7 @@ import Auth from './layout/Auth';
 import Main from './layout/Main';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Explore from './components/explore/Explore';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
                 <Route path="/register" element={<Auth Component={Register} />} />
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/home" element={<Main Component={Home} />} />
-                <Route path="/job" element={<Main Component={Jobs} />} />
+                <Route path="/explore" element={<Main Component={Explore} />} />
                 <Route path="/messages" element={<Main Component={Message} />} />
               </Routes>
             </Router>
