@@ -13,6 +13,11 @@
     font-weight: bold;
 }
 
+.explore-subtitle{
+  font-size: 0.95em;
+  font-weight: 300;  
+}
+
 .explore-candidate-action-container{
     display: flex;
     justify-content: center;
@@ -37,4 +42,11 @@
 .explore-search-btn:hover{
 box-shadow: none;
   cursor: pointer;
+}
+
+.explore-candidate-listview-container{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 45px;
 }

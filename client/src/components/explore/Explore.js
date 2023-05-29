@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import skillList from "../../mock_data/skillList";
+import CandidatesCard from "../posting/CandidatesCard";
 import "./explore.css";
 import experienceList from "../../mock_data/experienceList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -10,7 +11,7 @@ const Explore = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenExperience, setIsOpenExperience] = useState(false);
   const [experience, setExperience] = useState("");
-  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState([]);  
 
   return (
     <div className="explore-body">
@@ -110,8 +111,24 @@ const Explore = () => {
       <div className="explore-candidate-action-container">
         <p className="explore-search-btn">Search <SearchIcon /></p>
       </div>
-      <div className="explore-input-recitation-container"></div>
-      <div className="explore-candidate-listview-container"></div>
+      <div className="explore-candidate-listview-container">
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+        <CandidatesCard/>
+      </div>
     </div>
   );
 };
