@@ -140,3 +140,29 @@
   background-color: white;
   box-shadow: 4px 4px 0 black;
 }
+
+.form-action-container{
+  display: flex;
+  margin-top: 40px;
+  justify-content: flex-end;
+}
+
+.add-posting-submit-btn{
+  padding: 4px 10px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #f9a826;
+  font-weight: 500;
+  color: white;
+  box-shadow: 4px 4px 0 black;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.add-posting-submit-btn:hover{
+  box-shadow: none;
+}

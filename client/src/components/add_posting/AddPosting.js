@@ -129,6 +129,9 @@ const AddPosting = () => {
               placeholder="Eg: Unlimited Time Off"
             />
           </div>
+          <div className="form-action-container">
+            <p className="add-posting-submit-btn">Add Posting</p>
+          </div>
         </div>
       </div>
     </div>
