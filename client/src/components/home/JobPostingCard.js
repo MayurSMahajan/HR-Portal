@@ -9,7 +9,7 @@ import { removeItem } from "../../features/postings/postingsSlice";
 import { useNavigate } from "react-router-dom";
 
 
-const JobPostingsCard = ({ id, title, date, budget, applicants, shortlisted, interviewed }) => {
+const JobPostingsCard = ({ id, title, date, skills ,budget, applicants, shortlisted, interviewed }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const JobPostingsCard = ({ id, title, date, budget, applicants, shortlisted, int
   return (
     <div className="job-postings-card-container" onClick={navigateToPostingDetail}>
       <div className="job-postings-card-header">
-        <h3>{title}</h3>
+        <h3>{title} <span style={{fontSize:"0.9em", fontWeight:"300", color:"#333", marginLeft:"12px"}} >{date}</span></h3>
         <div className="job-postings-card-actions-container">
           <div className="job-postings-card-action-item">
             <EditOutlinedIcon />
@@ -33,20 +33,22 @@ const JobPostingsCard = ({ id, title, date, budget, applicants, shortlisted, int
       <div className="job-postings-card-body">
         <div className="job-postings-stats-container">
           <div className="job-postings-stats-card">
-            <CalendarMonthOutlinedIcon style={{ fontSize: 40 }} />
-            <div className="job-postings-stats-text">
-              <p className="job-postings-stats-text-heading">Date</p>
-              <p className="job-postings-stats-text-subtitle">
-                {date}
-              </p>
-            </div>
-          </div>
-          <div className="job-postings-stats-card">
             <AttachMoneyOutlinedIcon style={{ fontSize: 40 }} />
             <div className="job-postings-stats-text">
               <p className="job-postings-stats-text-heading">Budget</p>
               <p className="job-postings-stats-text-subtitle">
                 {budget}
+              </p>
+            </div>
+          </div>
+          <div className="job-postings-stats-card">
+            <CalendarMonthOutlinedIcon style={{ fontSize: 40 }} />
+            <div className="job-postings-stats-text">
+              <p className="job-postings-stats-text-heading">Skills</p>
+              <p className="job-postings-stats-text-subtitle">
+                {
+                  skills.map((skill)=> <span>{skill}</span>)
+                }
               </p>
             </div>
           </div>

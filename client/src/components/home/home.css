@@ -26,7 +26,7 @@
   padding: 10px;
   text-align: center;
   font-family: "Poppins";
-  font-weight: 700;
+  font-weight: 500;
   border: 1px solid black;
   color: #fff;
   background: #f9a826;
@@ -105,13 +105,17 @@
 
 .job-postings-stats-container {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
 }
 
 .job-postings-card-body{
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 60% 2% auto;
   margin-top: 0;
 }
+
 
 .divider{
   width: 2px;
@@ -129,24 +133,26 @@
   font-weight: 300;
   color: #444;
   margin-top: 0; 
+  display: flex;
+  gap: 6px;
 }
 
 .job-postings-stats-container{
   display: flex;
-  width: 49%;
 }
 
 .job-postings-stats-card {
   display: flex;
-  align-items: center;
-  width: 140px;
+  align-items: center;  
+  min-width: 140px;
   justify-content: space-evenly;
+  gap:10px;
 }
 
 .job-postings-metadata-container{
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
+  gap: 20px;
 }
 
 .job-postings-metadata-card{
