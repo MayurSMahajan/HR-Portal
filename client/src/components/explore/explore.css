@@ -1,0 +1,52 @@
+.explore-body{
+    width: 68vw;
+    padding: 1.5% 5%;
+}
+
+.explore-candidate-input-container{
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+}
+
+.explore-title{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.explore-subtitle{
+  font-size: 0.95em;
+  font-weight: 300;  
+}
+
+.explore-candidate-action-container{
+    display: flex;
+    justify-content: center;
+}
+
+.explore-search-btn{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  text-align: center;  
+  font-weight: 500;
+  border: 1px solid black;
+  color: #fff;
+  background: #f9a826;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #000000;
+  transition: 0.25s ease-in-out;
+}
+
+.explore-search-btn:hover{
+box-shadow: none;
+  cursor: pointer;
+}
+
+.explore-candidate-listview-container{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 45px;
+}

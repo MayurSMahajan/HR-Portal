@@ -1,0 +1,168 @@
+.add-posting-container {
+  padding: 2.5% 5%;
+}
+
+.add-posting-header {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.add-posting-heading {
+  font-size: 1.2em;
+}
+
+.add-posting-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: bisque;
+  padding: 30px;
+}
+
+.add-posting-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-input-label-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.single-line-input-label {
+  font-size: 1em;
+  font-weight: 500;
+  color: #111;  
+}
+
+.single-line-input-field,
+.multi-line-input-field,
+.multiple-input-field {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 black;
+  transition: 0.25s ease-in-out;
+}
+
+.single-line-input-field:hover,
+.multi-line-input-field:hover,
+.multiple-input-field:hover {
+  box-shadow: none;
+}
+
+.single-line-input-field {
+  width: 530px;
+}
+
+.multiple-input-field {
+  width: 180px;
+}
+
+.sub-labels {
+  margin: 2px;
+}
+
+.multiple-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-listview-container{
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 110px;
+  cursor: pointer; 
+  margin: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.dropdown-btn-container:hover{
+  font-weight: 300;
+}
+
+.dropdown > ul {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  height: 300px;
+  overflow-y: scroll;
+  background-color: #f9f9f9;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.dropdown > ul > li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdown > ul > li:hover {
+  background-color: #ddd;
+}
+
+.skills-listview{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skill-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: white;
+  box-shadow: 4px 4px 0 black;
+}
+
+.form-action-container{
+  display: flex;
+  margin-top: 40px;
+  justify-content: flex-end;
+}
+
+.add-posting-submit-btn{
+  padding: 4px 10px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #f9a826;
+  font-weight: 500;
+  color: white;
+  box-shadow: 4px 4px 0 black;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.add-posting-submit-btn:hover{
+  box-shadow: none;
+}

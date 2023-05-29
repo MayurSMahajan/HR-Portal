@@ -4,6 +4,7 @@ import PostingDetailCard from "./PostingDetailCard";
 import mockActiveJobsList from "../../mock_data/mockActiveJobsList";
 import CandidatesCard from "./CandidatesCard";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 
 const PostingDetail = () => {
@@ -11,13 +12,21 @@ const PostingDetail = () => {
   const navigate = useNavigate();
 
   const navigateToAllCandidates = () => {
-    console.log("Heya!")
     navigate('/posting/all');
   }
 
+  const navigateBack = () => {
+    navigate(-1);
+  }
+
   return (
-    <div className="postings_container">
-      <h3 className="postings-heading">Postings Detail</h3>
+    <div className="postings-page">
+      <div className="postings-heading-container">
+        <ArrowBackIcon onClick={navigateBack} sx={{cursor:"pointer"}}/>
+        <h3 className="postings-heading">Postings Detail</h3>
+      </div>
+
+      <div className="postings_container">
       <PostingDetailCard {...mockActiveJobsList[0]} />
       <div className="candidates-section">
         <div className="candidates-type-container">
@@ -42,6 +51,7 @@ const PostingDetail = () => {
           <span className="secondary-btn">View More Candidates</span>
         </div>
       </div>
+    </div>
     </div>
   );
 };

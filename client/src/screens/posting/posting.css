@@ -1,3 +1,9 @@
+.postings-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .postings_container {
   display: flex;
   flex-direction: column;
@@ -25,8 +31,17 @@
   cursor: pointer;
 }
 
+.postings-heading-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 160px;
+  width: 90vw;
+  margin-top: 20px;
+}
+
 .postings-heading {
-  font-size: 1.3em;
+  font-size: 1.3em; 
 }
 
 /* ------------------------------------- Posting Card ------------------------------------------------*/
@@ -125,7 +140,7 @@
   margin-right: 30px;
   background-color: #f0f0f0;
   border-radius: 10px;
-  min-width: 240px;
+  width: 240px;
   height: 280px;
   display: block;
   border: 1.3px solid black;

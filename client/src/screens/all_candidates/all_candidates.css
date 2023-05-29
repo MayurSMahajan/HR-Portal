@@ -1,0 +1,24 @@
+.all-candidate-container{
+    padding: 3% 5%;
+}
+
+.all-candidate-header{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.all-candidate-heading{
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.all-candidate-body{
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.candidate-card-container{
+    display: flex;    
+}

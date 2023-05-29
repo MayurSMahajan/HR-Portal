@@ -22,10 +22,25 @@
   font-size: 1.3em;
 }
 
-.job-postings-view-all {
-  font-weight: 300;
+.job-postings-add-posting {
+  padding: 10px;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  border: 1px solid black;
+  color: #fff;
+  background: #f9a826;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #000000;
+  transition: 0.25s ease-in-out;
+}
+
+.job-postings-add-posting:hover {
+  box-shadow: none;
   cursor: pointer;
 }
+
 
 /* ------------------------ Navigation Section ------------------------*/
 
