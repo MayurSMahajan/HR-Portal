@@ -5,7 +5,7 @@ import JobPostingsContent from "./JobPostingsContent";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [activeFlag, setActiveFlag] = useState();
+  const [activeFlag, setActiveFlag] = useState(true);
 
   const handleNavClick = (val) => {
     setActiveFlag(val);
