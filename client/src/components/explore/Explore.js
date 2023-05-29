@@ -5,13 +5,13 @@ import "./explore.css";
 import experienceList from "../../mock_data/experienceList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloseIcon from "@mui/icons-material/Close";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 const Explore = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenExperience, setIsOpenExperience] = useState(false);
   const [experience, setExperience] = useState("");
-  const [selectedSkills, setSelectedSkills] = useState([]);  
+  const [selectedSkills, setSelectedSkills] = useState([]);
 
   return (
     <div className="explore-body">
@@ -60,10 +60,13 @@ const Explore = () => {
               <p></p>
               {selectedSkills.map((skill, index) => (
                 <div key={index} className="skill-box">
-                  <p className="skill-title">{skill}</p>
+                  <p className="skill-title" style={{ marginRight: "4px" }}>
+                    {skill}
+                  </p>
                   <CloseIcon
+                    style={{ cursor: "pointer" }}
                     onClick={() => {
-                      setSelectedSkills(selectedSkills.filter);
+                      setSelectedSkills(selectedSkills.filter((item) => item !== skill));
                     }}
                   />
                 </div>
@@ -106,28 +109,29 @@ const Explore = () => {
             <p>{experience}</p>
           </div>
         </div>
-
       </div>
       <div className="explore-candidate-action-container">
-        <p className="explore-search-btn">Search <SearchIcon /></p>
+        <p className="explore-search-btn">
+          Search <SearchIcon />
+        </p>
       </div>
       <div className="explore-candidate-listview-container">
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
-        <CandidatesCard/>
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
+        <CandidatesCard />
       </div>
     </div>
   );

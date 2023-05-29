@@ -66,9 +66,9 @@ const AddPosting = () => {
               <div className="skills-listview">
                 {selectedSkills.map((skill, index) => (
                   <div key={index} className="skill-box">
-                    <p className="skill-title">{skill}</p>
-                    <CloseIcon onClick={()=>{
-                      setSelectedSkills(selectedSkills.filter);
+                    <p className="skill-title" style={{marginRight:"4px"}}>{skill}</p>
+                    <CloseIcon style={{cursor:"pointer"}} onClick={()=>{
+                     setSelectedSkills(selectedSkills.filter((item) => item !== skill));
                     }}/>
                   </div>
                 ))}
