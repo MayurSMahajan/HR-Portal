@@ -17,6 +17,11 @@ const JobPostingsCard = ({ id, title, date, skills ,budget, applicants, shortlis
     navigate('/posting');
   }
 
+  const removeThisItem = (e,id) => {
+    e.stopPropagation();
+    dispatch(removeItem(id));
+  }
+
   return (
     <div className="job-postings-card-container" onClick={navigateToPostingDetail}>
       <div className="job-postings-card-header">
@@ -26,7 +31,7 @@ const JobPostingsCard = ({ id, title, date, skills ,budget, applicants, shortlis
             <EditOutlinedIcon />
           </div>
           <div className="job-postings-card-action-item">
-            <DeleteOutlineOutlinedIcon onClick={() => dispatch(removeItem(id))} />
+            <DeleteOutlineOutlinedIcon onClick={(e) => removeThisItem(e, id)} />
           </div>
         </div>
       </div>
