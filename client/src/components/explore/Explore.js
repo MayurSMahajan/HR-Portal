@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import skillList from "../../mock_data/skillList";
-import CandidatesCard from "../posting/CandidatesCard";
+import CandidatesCard from "../../screens/posting/CandidatesCard";
 import "./explore.css";
 import experienceList from "../../mock_data/experienceList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
