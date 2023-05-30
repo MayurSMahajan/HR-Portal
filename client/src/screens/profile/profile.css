@@ -22,8 +22,7 @@
 /*------------------- Profile Section 1---------------------*/
 
 .profile-container-section-1{
-    display: grid;
-    grid-template-columns: 25% auto;
+    display: flex;
 }
 
 .personal-profile-container {
@@ -62,6 +61,8 @@
     background-color: #FEFFD7;
     border-radius: 10px;
     padding: 1.5% 3.5%;
+    margin-left: 10px;
+    flex-grow: 1;
 }
 
 .preference-tile-card{
@@ -95,7 +96,7 @@
 /* ------------------ Badges Certificate -------------------*/
 
 .profile-badges-container{
-    display: block;
+    display:block;
     padding: 5px 10px;
     padding-bottom: 45px;
     margin-top: 12px;
@@ -109,11 +110,16 @@
     padding-left: 12px;
 }
 
-.profile-badges-listview{
+.profile-badges-listview-container{
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 30px;
+    justify-content: center;
+}
+
+.profile-badges-listview{
+    display: grid;
+    width: 900px;
+    grid-template-columns: 33% auto 33%;
 }
 
 .badges-certificate{
@@ -128,6 +134,7 @@
     width: 240px;
     height: 140px;
     padding: 1% 2%;
+    margin-bottom: 30px;
     transition: .4s ease-in-out;
 }
 

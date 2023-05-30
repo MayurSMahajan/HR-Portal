@@ -54,10 +54,12 @@ const ProfileScreen = () => {
       <div className="profile-container-section-2">
         <div className="profile-badges-container">
           <p className="profile-labels">Badges</p>
+          <div className="profile-badges-listview-container">
           <div className="profile-badges-listview">
             {mockBadgesList.map((item) => (
               <BadgesCertificate {...item} />
             ))}
+          </div>
           </div>
         </div>
       </div>
