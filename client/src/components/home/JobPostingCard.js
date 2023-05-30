@@ -9,15 +9,16 @@ import { removeItem } from "../../features/postings/postingsSlice";
 import { useNavigate } from "react-router-dom";
 
 
-const JobPostingsCard = ({ id, title, date, skills ,budget, applicants, shortlisted, interviewed }) => {
+const JobPostingsCard = ({ id, title, date, skills, budget, applicants, shortlisted, interviewed }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let exactDate = date.slice(0, 10)
 
   const navigateToPostingDetail = () => {
-    navigate('/posting');
+    navigate(`/posting/${id}`);
   }
 
-  const removeThisItem = (e,id) => {
+  const removeThisItem = (e, id) => {
     e.stopPropagation();
     dispatch(removeItem(id));
   }
@@ -25,7 +26,7 @@ const JobPostingsCard = ({ id, title, date, skills ,budget, applicants, shortlis
   return (
     <div className="job-postings-card-container" onClick={navigateToPostingDetail}>
       <div className="job-postings-card-header">
-        <h3>{title} <span style={{fontSize:"0.9em", fontWeight:"300", color:"#333", marginLeft:"12px"}} >{date}</span></h3>
+        <h3>{title} <span style={{ fontSize: "0.9em", fontWeight: "300", color: "#333", marginLeft: "12px" }} >{exactDate}</span></h3>
         <div className="job-postings-card-actions-container">
           <div className="job-postings-card-action-item">
             <EditOutlinedIcon />
@@ -52,7 +53,7 @@ const JobPostingsCard = ({ id, title, date, skills ,budget, applicants, shortlis
               <p className="job-postings-stats-text-heading">Skills</p>
               <p className="job-postings-stats-text-subtitle">
                 {
-                  skills.map((skill)=> <span>{skill}</span>)
+                  skills.map((skill) => <span>{skill}</span>)
                 }
               </p>
             </div>

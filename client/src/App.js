@@ -1,4 +1,4 @@
-import { DashboardDataProvider, MessageDataProvider, UserDataProvider } from './context';
+import { DashboardDataProvider, JobDataProvider, MessageDataProvider, UserDataProvider } from './context';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Dashboard from './screens/dashboard/Dashboard';
 import Home from './components/home/Home';
@@ -20,22 +20,24 @@ function App() {
       <Router>
         <UserDataProvider>
           <DashboardDataProvider>
-            <MessageDataProvider>
+            <JobDataProvider>
+              <MessageDataProvider>
 
-              <Routes>
-                <Route path="/login" element={<Auth Component={Login} />} />
-                <Route path="/posting" element={<PostingDetail />} />
-                <Route path="/posting/all" element={<AllCandidates />} />
-                <Route path="/posting/add" element={<AddPosting />} />
-                <Route path="/profile" element={<ProfileScreen />} />
-                <Route path="/register" element={<Auth Component={Register} />} />
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/home" element={<Main Component={Home} />} />
-                <Route path="/explore" element={<Main Component={Explore} />} />
-                <Route path="/messages" element={<Main Component={Message} />} />
+                <Routes>
+                  <Route path="/login" element={<Auth Component={Login} />} />
+                  <Route path="/posting/:id" element={<PostingDetail />} />
+                  <Route path="/posting/all" element={<AllCandidates />} />
+                  <Route path="/posting/add" element={<AddPosting />} />
+                  <Route path="/profile" element={<ProfileScreen />} />
+                  <Route path="/register" element={<Auth Component={Register} />} />
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/home" element={<Main Component={Home} />} />
+                  <Route path="/explore" element={<Main Component={Explore} />} />
+                  <Route path="/messages" element={<Main Component={Message} />} />
 
-              </Routes>
-            </MessageDataProvider>
+                </Routes>
+              </MessageDataProvider>
+            </JobDataProvider>
           </DashboardDataProvider>
         </UserDataProvider>
       </Router>
