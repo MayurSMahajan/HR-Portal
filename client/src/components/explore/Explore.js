@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import skillList from "../../mock_data/skillList";
-import CandidatesCard from "../../screens/posting/CandidatesCard";
 import "./explore.css";
 import experienceList from "../../mock_data/experienceList";
+import mockExploreCandidateList from "../../mock_data/mockExploreCandidateList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
+import goldBadgeIcon from '../../assets/icons/gold_badge.png';
 
 const Explore = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,25 +118,61 @@ const Explore = () => {
         </p>
       </div>
       <div className="explore-candidate-listview-container">
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
-        <CandidatesCard />
+        {
+          mockExploreCandidateList.map((item)=> <ExploreCandidatesCard key={item.id} {...item} />)
+        }
       </div>
     </div>
   );
 };
+
+const ExploreCandidatesCard = ({id, name, experience, job, badges}) => {
+  const navigate = useNavigate();
+
+  const navigateToProfile = () => {
+    navigate('/profile');
+  }
+
+  const handleShortlist = () => {
+    console.log(id);
+  }
+
+  return (
+    <div className="candidates-card" onClick={navigateToProfile}>
+      <p>{name}</p>
+      <div className="candidate-info-container">
+        <p className="candidate-card-key">Experience</p>
+        <p className="candidate-card-value">{experience}</p>
+      </div>
+      <div className="candidate-info-container">
+        <p className="candidate-card-key">Current Job</p>
+        <p className="candidate-card-value">{job}</p>
+      </div>
+      <div>
+      <p className="candidate-card-key">Badges</p>
+      <div className="candidate-info-container">
+        <div className="badges-container">
+          {
+            badges.map((item) => <BadgeCard image={goldBadgeIcon} name={item}/>)
+          }
+        </div>
+      </div>
+      </div>
+      <div className="candidate-card-action">
+        <p className="candidate-primary-btn" onClick={handleShortlist}>Shortlist</p>
+      </div>
+    </div>
+  );
+};
+
+const BadgeCard = ({image, name}) => { 
+  return (
+    <div className="badge-card">
+      <img src={image} alt="badge" className="badge-icon"/>
+      <p>{name}</p>
+
+    </div>
+  );
+}
 
 export default Explore;
