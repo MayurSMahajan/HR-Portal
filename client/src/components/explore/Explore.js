@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import skillList from "../../mock_data/skillList";
 import "./explore.css";
-import experienceList from "../../mock_data/experienceList";
 import mockExploreCandidateList from "../../mock_data/mockExploreCandidateList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloseIcon from "@mui/icons-material/Close";
@@ -11,8 +10,6 @@ import ExploreCandidatesCard from "./ExploreCandidatesCard";
 
 const Explore = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenExperience, setIsOpenExperience] = useState(false);
-  const [experience, setExperience] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
   const postingsList = useSelector((state) => state.postings.postingsList);
 
@@ -79,46 +76,12 @@ const Explore = () => {
             </div>
           </div>
         </div>
-
-        <div></div>
-
-        <div className="skills-input-container">
-          <div className="skill-input-label-container">
-            <div className="dropdown">
-              <div
-                className="dropdown-btn-container"
-                onClick={() => setIsOpenExperience(!isOpenExperience)}
-              >
-                <p>Experience</p>
-                {isOpenExperience ? <CloseIcon /> : <ExpandMoreIcon />}
-              </div>
-              {isOpenExperience && (
-                <ul style={{ listStyleType: "none", padding: "0" }}>
-                  {experienceList.map((item) => (
-                    <li
-                      sx={{ cursor: "pointer" }}
-                      key={item}
-                      onClick={() => {
-                        setExperience(item);
-                        setIsOpenExperience(false);
-                      }}
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-          <div className="skills-listview-container">
-            <p>{experience}</p>
-          </div>
-        </div>
       </div>
+      <div className="explore-candidate-action-parent">
       <div className="explore-candidate-action-container">
-        <p className="explore-search-btn">
-          Search <SearchIcon />
-        </p>
+          <p>Search </p>
+          <SearchIcon />
+        </div>
       </div>
       <div className="explore-candidate-listview-container">
         {mockExploreCandidateList.map((item) => (
@@ -132,6 +95,5 @@ const Explore = () => {
     </div>
   );
 };
-
 
 export default Explore;
