@@ -146,6 +146,7 @@
   border: 1.3px solid black;
   box-shadow: 4px 4px 0px #000000;
   transition: 0.25s ease-in-out;
+  cursor: pointer;
 }
 
 .candidates-card:hover {

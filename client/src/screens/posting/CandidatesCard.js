@@ -2,16 +2,23 @@ import React from "react";
 import goldBadgeIcon from '../../assets/icons/gold_badge.png';
 import silverBadgeIcon from '../../assets/icons/silver_badge.png';
 import bronzeBadgeIcon from '../../assets/icons/bronze_badge.png';
+import { useNavigate } from "react-router-dom";
 
 const CandidatesCard = () => {
+  const navigate = useNavigate();
+
+  const navigateToProfile = () => {
+    navigate('/profile');
+  }
+
   const badges = {
-    "gold": ["Java"],
+    "gold": ["Java", "Flutter"],
     "silver": ["Android"],
     "bronze": []
   }
 
   return (
-    <div className="candidates-card">
+    <div className="candidates-card" onClick={navigateToProfile}>
       <p>Mayur Mahajan</p>
       <div className="candidate-info-container">
         <p className="candidate-card-key">Experience</p>
