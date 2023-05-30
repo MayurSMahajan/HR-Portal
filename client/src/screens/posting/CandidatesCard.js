@@ -1,7 +1,5 @@
 import React from "react";
 import goldBadgeIcon from '../../assets/icons/gold_badge.png';
-import silverBadgeIcon from '../../assets/icons/silver_badge.png';
-import bronzeBadgeIcon from '../../assets/icons/bronze_badge.png';
 import { useNavigate } from "react-router-dom";
 
 const CandidatesCard = () => {
@@ -11,11 +9,7 @@ const CandidatesCard = () => {
     navigate('/profile');
   }
 
-  const badges = {
-    "gold": ["Java", "Flutter"],
-    "silver": ["Android"],
-    "bronze": []
-  }
+  const badges = ["Java", "Flutter"];
 
   return (
     <div className="candidates-card" onClick={navigateToProfile}>
@@ -28,23 +22,15 @@ const CandidatesCard = () => {
         <p className="candidate-card-key">Current Job</p>
         <p className="candidate-card-value">SDE - 2 Mozilla</p>
       </div>
+      <div>
       <p className="candidate-card-key">Badges</p>
       <div className="candidate-info-container">
         <div className="badges-container">
-          {badges.gold.map((item) => (
+          {badges.map((item) => (
             <BadgeCard image={goldBadgeIcon} name={item}/>
           ))}
         </div>
-        <div className="badges-container">
-          {badges.silver.map((item) => (
-            <BadgeCard image={silverBadgeIcon} name={item}/>
-          ))}
-        </div>
-        <div className="badges-container">
-          {badges.bronze.map((item) => (
-            <BadgeCard image={bronzeBadgeIcon} name={item}/>
-          ))}
-        </div>
+      </div>
       </div>
       <div className="candidate-card-action">
         <p className="candidate-secondary-btn">Reject</p>
@@ -59,7 +45,6 @@ const BadgeCard = ({image, name}) => {
     <div className="badge-card">
       <img src={image} alt="badge" className="badge-icon"/>
       <p>{name}</p>
-
     </div>
   );
 }
