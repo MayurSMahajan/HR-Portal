@@ -7,6 +7,7 @@ import "./add_posting.css";
 import skillList from "../../mock_data/skillList";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
+import { BASE_URL } from "../../components/utils/util";
 
 const AddPosting = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const AddPosting = () => {
   const [jobDescription, setJobDescription] = useState("");
   const [jobRoles, setJobRoles] = useState("");
   const [jobPerks, setJobPerks] = useState("");
+
   const { user, Token } = useContext(UserContext)
 
 
@@ -26,42 +28,45 @@ const AddPosting = () => {
     navigate(-1);
   };
 
+
+
   const handleSubmit = () => {
-    const userId = user._id;
     const postData = {
-      userId,
+      hr_id: user.id,
       jobTitle,
+      date: new Date(Date.now()),
       skills: selectedSkills,
       experience,
-      budget: {
-        low: budgetLow,
-        high: budgetHigh,
-      },
+      budget: budgetHigh,
       jobDescription,
       jobRoles,
       jobPerks,
     };
 
+    const config = {
+      Headers: { 'x-access-token': Token }
+    }
     console.log(postData);
 
-    axios.post("https://example.com/api/submit", postData)
+    axios.post(`${BASE_URL}/api/hr/createjob`, postData, config)
       .then(response => {
-        // Handle success response
         console.log("Post request successful", response.data);
       })
       .catch(error => {
-        // Handle error
         console.error("Post request error", error);
-      });
+      })
+    // .finally(() => {
+    //   setSelectedSkills([]);
+    //   setJobTitle("");
+    //   setExperience("");
+    //   setBudgetLow("");
+    //   setBudgetHigh("");
+    //   setJobDescription("");
+    //   setJobRoles("");
+    //   setJobPerks("");
+    // })
 
-    setSelectedSkills([]);
-    setJobTitle("");
-    setExperience("");
-    setBudgetLow("");
-    setBudgetHigh("");
-    setJobDescription("");
-    setJobRoles("");
-    setJobPerks("");
+
   };
 
   return (
