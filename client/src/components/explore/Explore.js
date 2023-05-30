@@ -6,14 +6,15 @@ import mockExploreCandidateList from "../../mock_data/mockExploreCandidateList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
-import goldBadgeIcon from '../../assets/icons/gold_badge.png';
+import { useSelector } from "react-redux";
+import ExploreCandidatesCard from "./ExploreCandidatesCard";
 
 const Explore = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenExperience, setIsOpenExperience] = useState(false);
   const [experience, setExperience] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const postingsList = useSelector((state) => state.postings.postingsList);
 
   return (
     <div className="explore-body">
@@ -68,7 +69,9 @@ const Explore = () => {
                   <CloseIcon
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      setSelectedSkills(selectedSkills.filter((item) => item !== skill));
+                      setSelectedSkills(
+                        selectedSkills.filter((item) => item !== skill)
+                      );
                     }}
                   />
                 </div>
@@ -118,61 +121,17 @@ const Explore = () => {
         </p>
       </div>
       <div className="explore-candidate-listview-container">
-        {
-          mockExploreCandidateList.map((item)=> <ExploreCandidatesCard key={item.id} {...item} />)
-        }
+        {mockExploreCandidateList.map((item) => (
+          <ExploreCandidatesCard
+            key={item.id}
+            {...item}
+            postingsList={postingsList}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-const ExploreCandidatesCard = ({id, name, experience, job, badges}) => {
-  const navigate = useNavigate();
-
-  const navigateToProfile = () => {
-    navigate('/profile');
-  }
-
-  const handleShortlist = () => {
-    console.log(id);
-  }
-
-  return (
-    <div className="candidates-card" onClick={navigateToProfile}>
-      <p>{name}</p>
-      <div className="candidate-info-container">
-        <p className="candidate-card-key">Experience</p>
-        <p className="candidate-card-value">{experience}</p>
-      </div>
-      <div className="candidate-info-container">
-        <p className="candidate-card-key">Current Job</p>
-        <p className="candidate-card-value">{job}</p>
-      </div>
-      <div>
-      <p className="candidate-card-key">Badges</p>
-      <div className="candidate-info-container">
-        <div className="badges-container">
-          {
-            badges.map((item) => <BadgeCard image={goldBadgeIcon} name={item}/>)
-          }
-        </div>
-      </div>
-      </div>
-      <div className="candidate-card-action">
-        <p className="candidate-primary-btn" onClick={handleShortlist}>Shortlist</p>
-      </div>
-    </div>
-  );
-};
-
-const BadgeCard = ({image, name}) => { 
-  return (
-    <div className="badge-card">
-      <img src={image} alt="badge" className="badge-icon"/>
-      <p>{name}</p>
-
-    </div>
-  );
-}
 
 export default Explore;

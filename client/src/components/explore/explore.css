@@ -50,3 +50,62 @@ box-shadow: none;
   grid-template-columns: auto auto auto auto;
   row-gap: 45px;
 }
+
+.explore-shortlist-dialog-container{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(254, 232, 199, 0.8);
+}
+
+.explore-shortlist-close-icon{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.explore-shortlist-dialog{
+  border-radius: 10px;
+  width: 360px;
+  background-color: white;
+  padding: 20px 10px;
+  text-align: center;
+  box-shadow: 10px 10px 0 rgba(254, 232, 199);
+}
+
+.explore-shortlist-dialog-title{
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.explore-shortlist-dialog-subtitle{
+  font-size: 0.9em;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.explore-postings-listview{
+  margin-top: 20px;
+}
+
+.explore-postings-tile{
+  padding: 4px;
+  text-align: start;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 4px;
+  transition: 0.4s ease-in-out;
+}
+
+.explore-postings-tile:hover{
+  background-color: #f9a826;
+}
