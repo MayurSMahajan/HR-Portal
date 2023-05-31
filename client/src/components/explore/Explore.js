@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import skillList from "../../mock_data/skillList";
 import "./explore.css";
-import mockExploreCandidateList from "../../mock_data/mockExploreCandidateList";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
-import { useSelector } from "react-redux";
 import ExploreCandidatesCard from "./ExploreCandidatesCard";
 import { BASE_URL } from "../utils/util";
 import axios from 'axios'

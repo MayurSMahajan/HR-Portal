@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { BASE_URL } from "../utils/util";
 import { JobContext, UserContext } from "../../context";
