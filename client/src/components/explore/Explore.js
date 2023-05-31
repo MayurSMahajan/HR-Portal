@@ -24,18 +24,17 @@ const Explore = () => {
     headers: { 'x-access-token': Token }
   }
 
-  const getAllCandidate = () => {
 
-    axios.get(`${BASE_URL}/api/profile/userdetails`, config)
-      .then((res) => {
-        console.log(res.data)
-        setAllCandidate(res.data.data)
-      })
-      .catch((err) => console.log(err.message))
-      .finally(setexploreLoading(false))
-  }
   useEffect(() => {
-
+    const getAllCandidate = () => {
+      axios.get(`${BASE_URL}/api/profile/userdetails`, config)
+        .then((res) => {
+          console.log(res.data)
+          setAllCandidate(res.data.data)
+          setFiltered(res.data.data)
+        })
+        .catch((err) => console.log(err.message))
+    }
 
     const getJobs = () => {
 
@@ -46,13 +45,13 @@ const Explore = () => {
         })
         .catch(err => console.log(err.message))
     }
-    getJobs()
     getAllCandidate()
+    getJobs()
+
   }, [])
 
   useEffect(() => {
     if (selectedSkills.length === 0) {
-      getAllCandidate()
       console.log(AllCandidate)
       setFiltered(AllCandidate)
     }
@@ -151,9 +150,11 @@ const Explore = () => {
         </div>
       </div>
       <div className="explore-candidate-listview-container">
-        {exploreLoading ?
-          <Loading />
-          : Filtered?.length === 0 ?
+        {
+          /* {exploreLoading ?
+            <Loading />
+            :  */
+          Filtered?.length === 0 ?
             <div>No match found</div>
             :
             Filtered?.map((item, index) => (
