@@ -143,11 +143,11 @@ const AddPosting = () => {
             </div>
           </div>
           <div className="single-line-input-container">
-            <p className="single-line-input-label">Enter Desired Experience</p>
+            <p className="single-line-input-label">Enter Company Name</p>
             <input
               type="text"
               className="single-line-input-field"
-              placeholder="Eg: 2 years"
+              placeholder="Eg: UpLevel Ltd."
               value={experience}
               onChange={(e) => setExperience(e.target.value)}
             />
