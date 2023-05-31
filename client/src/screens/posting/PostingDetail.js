@@ -1,57 +1,64 @@
 import React, { useContext, useEffect } from "react";
 import "./posting.css";
 import PostingDetailCard from "./PostingDetailCard";
-import mockActiveJobsList from "../../mock_data/mockActiveJobsList";
 import CandidatesCard from "./CandidatesCard";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate, useParams } from "react-router-dom";
 import { JobContext, UserContext } from "../../context";
 import { BASE_URL } from "../../components/utils/util";
 import axios from "axios";
 
 const PostingDetail = () => {
-
   const navigate = useNavigate();
-  const { jobs, jobDetail, setjobDetail, ShortlistedCandidates, setShortlistedCandidates } = useContext(JobContext)
-  const { id } = useParams()
-  const { user, Token } = useContext(UserContext)
+  const {
+    jobs,
+    jobDetail,
+    setjobDetail,
+    ShortlistedCandidates,
+    setShortlistedCandidates,
+  } = useContext(JobContext);
+  const { id } = useParams();
+  const { user, Token } = useContext(UserContext);
 
   useEffect(() => {
     const config = {
-      headers: { 'x-access-token': Token }
-    }
+      headers: { "x-access-token": Token },
+    };
     const getJobDetail = () => {
-      axios.get(`${BASE_URL}/api/hr/getSingleJobByID/${id}`, config)
+      axios
+        .get(`${BASE_URL}/api/hr/getSingleJobByID/${id}`, config)
         .then((res) => {
-          console.log(res.data.job)
-          setjobDetail(res.data.job[0])
+          console.log(res.data.job);
+          setjobDetail(res.data.job[0]);
         })
-        .catch(err => console.log(err.message))
-    }
+        .catch((err) => console.log(err.message));
+    };
     const getShortlistedCandidates = () => {
-      axios.post(`${BASE_URL}/api/hr/getshortlistedusersbyid`, { job_id: id }, config)
+      axios
+        .post(
+          `${BASE_URL}/api/hr/getshortlistedusersbyid`,
+          { job_id: id },
+          config
+        )
         .then((res) => {
-          console.log(res.data)
-          setShortlistedCandidates(res.data.data)
+          console.log(res.data);
+          setShortlistedCandidates(res.data.data);
         })
-        .catch(err => console.log(err.message))
-    }
+        .catch((err) => console.log(err.message));
+    };
 
-    getShortlistedCandidates()
-    getJobDetail()
-
-  }, [])
+    getShortlistedCandidates();
+    getJobDetail();
+  }, []);
 
   const navigateToAllCandidates = () => {
-    navigate('/posting/all');
-  }
+    navigate("/explore");
+  };
 
   const navigateBack = () => {
     navigate(-1);
-  }
-
-
+  };
 
   return (
     <div className="postings-page">
@@ -67,17 +74,24 @@ const PostingDetail = () => {
             <h3 className="postings-heading">Shortlisted Candidates</h3>
           </div>
           <div className="candidates-container">
-            {
-              ShortlistedCandidates && ShortlistedCandidates?.map((val, key) => (
+            {ShortlistedCandidates.length !== 0 ? (
+              ShortlistedCandidates?.map((val, key) => (
                 <>
-                  <CandidatesCard val={val} />
+                  <CandidatesCard key={key} val={val} />
+                  <ViewAllCard
+                    navigateToAllCandidates={navigateToAllCandidates}
+                  />
                 </>
               ))
-            }
-            <ViewAllCard navigateToAllCandidates={navigateToAllCandidates} />
+            ) : (
+              <p >No Candidates are Shortlisted for this Job Posting, Click below to explore candidates</p>
+            )}
           </div>
-          
-          <div className="secondary-btn-container" onClick={navigateToAllCandidates}>
+
+          <div
+            className="secondary-btn-container"
+            onClick={navigateToAllCandidates}
+          >
             <span className="secondary-btn">View More Candidates</span>
           </div>
         </div>
@@ -87,7 +101,6 @@ const PostingDetail = () => {
 };
 
 const ViewAllCard = ({ navigateToAllCandidates }) => {
-
   return (
     <div className="view-all-card" onClick={navigateToAllCandidates}>
       <div className="view-all-btn">
