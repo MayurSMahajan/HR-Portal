@@ -1,100 +1,148 @@
-/* eslint-disable */
-import axios from 'axios'
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import register from '../../assets/register.png'
-import { ToggleButtonGroup, ToggleButton } from '@mui/material'
-import { BASE_URL } from '../utils/util'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import register from '../../assets/register.png';
+import axios from 'axios';
+import { BASE_URL } from '../utils/util';
 
 const Register = () => {
-    const [Name, setName] = useState()
-    const [Email, setEmail] = useState()
-    const [Password, setPassword] = useState()
-    const [Role, setRole] = useState()
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
-    const handleChange = (event, value) => {
-        setRole(value)
-    };
-    const handelSubmit = () => {
-        const dataObjs = {
-            name: Name,
-            email: Email,
-            password: Password,
-            role: Role
-        }
-        console.log(dataObjs)
-        axios.post(`${BASE_URL}/api/hr/signup`, dataObjs)
-            .then((data) => {
-                console.log(data)
-                alert("registered succesfully")
-                navigate('/login')
-            })
-            .catch((err) => console.log(err))
+  const validateEmail = (email) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const verifyInput = () => {
+    // Reset error messages
+    setNameError("");
+    setEmailError("");
+    setPasswordError("");
+    setConfirmPasswordError("");
+
+    let isValid = true;
+
+    if (!name) {
+      setNameError('Please enter your name');
+      isValid = false;
     }
 
+    if (!email) {
+      setEmailError('Please enter your email');
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address');
+      isValid = false;
+    }
 
-    return (
-        <div className='login'>
-            <div className='login_info'>
-                <img className='auth_img' src={register} alt="login" />
-            </div>
+    if (!password) {
+      setPasswordError('Please enter a password');
+      isValid = false;
+    } else if (!validatePassword(password)) {
+      setPasswordError(
+        'Password must be at least 8 chars and contain at least 1 lowercase, 1 uppercase, 1 digit, and 1 symbol'
+      );
+      isValid = false;
+    }
 
+    if (!confirmPassword) {
+      setConfirmPasswordError('Please confirm your password');
+      isValid = false;
+    } else if (password !== confirmPassword) {
+      setConfirmPasswordError('Passwords do not match');
+      isValid = false;
+    }
 
-            <div className='login_form'>
+    return isValid;
+  };
 
-                <section className='form_heading'>
-                    <h4>Create A New Account</h4>
-                    <p>Already registered ?<Link to="/login">login here</Link></p>
-                </section>
+  const handleSubmit = () => {
+    if (verifyInput()) {
+      const dataObjs = {
+        name: name,
+        email: email,
+        password: password,
+        role: 'candidate'
+      };
+      
+      console.log(dataObjs);
+      axios
+        .post(`${BASE_URL}/api/hr/signup`, dataObjs)
+        .then((data) => {
+          console.log(data);
+          alert('Registered successfully');
+          navigate('/login');
+        })
+        .catch((err) => console.log(err));
+    }
+  };
 
-                <div className='form'>
-                    <section>
-                        <label className='label'>Enter Your name</label>
-                        <input className='input' type="text" value={Name} onChange={(a) => setName(a.target.value)} />
-                    </section>
-                    <section className='btn_group'>
+  return (
+    <div className="login">
+      <div className="login_info">
+        <img className="auth_img" src={register} alt="login" />
+      </div>
 
-                        <label className='label' style={{ marginBottom: "8px" }} >What Are You Looking For?</label>
-                        <ToggleButtonGroup
-                            color="primary"
-                            value={Role}
-                            exclusive
-                            onChange={handleChange}
-                            aria-label="Platform"
-                            fullWidth
-                            style={{ width: "98%" }}
-                        >
-                            <ToggleButton className='b1 gp_btn' value="candidate" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking for Job</ToggleButton>
-                            <ToggleButton className='b2 gp_btn' value="company" style={{ marginRight: "8px", marginTop: "8px" }}>I am looking to heir</ToggleButton>
-                        </ToggleButtonGroup>
+      <div className="login_form">
+        <section className="form_heading">
+          <h4>Create A New Account</h4>
+          <p style={{ fontSize: '1em', fontWeight: '400' }}>
+            Already registered? <Link className="register-link" to="/login">Login here</Link>
+          </p>
+        </section>
 
-                        {/* <div className='btn_group_btns'>
-
-                            <button className='b1 gp_btn' onClick={() => setRole("candidate")}>I am looking for Job</button>
-                            <button className='b2 gp_btn' onClick={() => setRole("company")}>I am looking to heir</button>
-                        </div> */}
-                    </section>
-                    <section>
-                        <label className='label'>Enter Your email</label>
-                        <input className='input' type="email" value={Email}
-                            onChange={(a) => setEmail(a.target.value)} />
-                    </section>
-                    <section>
-                        <label className='label'> Password</label>
-                        <input className='input' type='password' value={Password}
-                            onChange={(a) => setPassword(a.target.value)} />
-                    </section>
-                    <section>
-
-                        <button className='auth_button' onClick={handelSubmit}>Create An Account</button>
-                    </section>
-                </div>
-            </div>
-
+        <div className="form">
+          <section>
+            <label className="label">Enter Your Name</label>
+            <input className="input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            {nameError && <p style={errorLabel}>{nameError}</p>}
+          </section>
+          <section>
+            <label className="label">Enter Your Email</label>
+            <input className="input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            {emailError && <p style={errorLabel}>{emailError}</p>}
+          </section>
+          <section>
+            <label className="label">Enter a new Password</label>
+            <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            {passwordError && <p style={errorLabel}>{passwordError}</p>}
+          </section>
+          <section>
+            <label className="label">Confirm your Password</label>
+            <input
+              className="input"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            {confirmPasswordError && <p style={errorLabel}>{confirmPasswordError}</p>}
+          </section>
+          <section className="auth-btn-container">
+            <button className="auth_button" onClick={handleSubmit}>Create An Account</button>
+          </section>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
+const errorLabel = {
+    fontSize: "1em",
+    fontWeight: "400",
+    color: "red",
+    margin: "2px",
+  };
 
-export default Register
+export default Register;

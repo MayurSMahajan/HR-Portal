@@ -1,14 +1,16 @@
 body {
     margin: 0;
     padding: 0;
+    
 }
 
 .login {
     display: flex;
     margin: 0;
     padding: 0;
-    height: 90vh;
+    height: 100vh;
     width: 100%;
+
 }
 
 .login_info {
@@ -19,7 +21,10 @@ body {
     background-repeat: no-repeat;
     padding: 0px 50px 0px 0px;
     border-radius: 10px;
+}
 
+.register-link{
+    margin-left: 8px;
 }
 
 .logo {
@@ -99,8 +104,6 @@ body {
   } */
 
 .auth_img {
-    /* max-width: 100vw; */
-    /* max-height: 100vh; */
     width: 100%;
     height: 100%;
 }
@@ -109,9 +112,8 @@ body {
     padding: 20px 20px 0px 100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 50%;
-
-
 }
 
 .form {
@@ -184,10 +186,16 @@ body {
     line-height: 30px;
 }
 
+.auth-btn-container{
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .auth_button {
-    font-family: "Poppins";
-    font-weight: 700;
-    font-size: 24px;
+    margin: 20px;
+    font-weight: 500;
+    font-size: 1em;
     line-height: 45px;
     letter-spacing: -0.015em;
     font-feature-settings: "pnum", "lnum";
@@ -197,7 +205,8 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
-    padding: 0 5px;
+    padding: 4px 12px;
+    transition: 0.2s ease-in-out;
 }
 
 .auth_button:hover {
@@ -254,7 +263,6 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-
     color: #000000;
     background: #F1F1F1;
     border: 1px solid #000000;
