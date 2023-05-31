@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './nav.css'
 import homeicon from '../../assets/icons/homeicon.png'
-import job from '../../assets/icons/jobsicon.png'
+import explore from '../../assets/icons/explore.png'
 import messageicon from '../../assets/icons/messageicon.png'
 import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
@@ -50,7 +50,7 @@ const Sidebar = () => {
                         </button>
 
                         <button onClick={() => handelClick(1, '/explore')} className={section === 1 ? ' nav_item active' : 'nav_item'}>
-                            <img className='side_nav_img' src={job} alt='logo' />
+                            <img className='side_nav_img' src={explore} alt='logo' />
                             <h3>Explore</h3>
                         </button>
                         <button onClick={() => handelClick(2, '/messages')} className={section === 2 ? ' nav_item active' : 'nav_item'}>
@@ -70,7 +70,7 @@ const Sidebar = () => {
                         </button>
 
                         <button onClick={() => handelClick(1, '/explore')} className={section === 1 ? ' nav_item active' : 'nav_item'}>
-                            <img className='side_nav_img' src={job} alt='logo' />
+                            <img className='side_nav_img' src={explore} alt='logo' />
                             <h3>Explore</h3>
                         </button>
                         {/* <button onClick={() => handelClick(2, '/messages')} className={section === 2 ? ' nav_item active' : 'nav_item'}>
