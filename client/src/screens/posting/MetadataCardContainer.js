@@ -4,11 +4,6 @@ import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalance
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 const MetadataCardContainer = ({ job }) => {
-  const skills = [
-    "Android",
-    "Java",
-    "React"
-  ];
   console.log("okok", job)
 
   return (
@@ -16,13 +11,11 @@ const MetadataCardContainer = ({ job }) => {
       <div className="metadata_section">
         <div className="metadata_card">
           <CalendarMonthOutlinedIcon className="metadata_icon" />
-          <span className="metadata_card_key">Created At  : </span>
-          <span className="metadata_card_value">{job?.date.slice(0, 10)}</span>
+          <span className="metadata_card_key">Created At  : {job?.date.slice(0, 10)}</span>
         </div>
         <div className="metadata_card">
           <AccountBalanceWalletOutlinedIcon className="metadata_icon" />
-          <span className="metadata_card_key">Budget  : </span>
-          <span className="metadata_card_value">{job?.budget}</span>
+          <span className="metadata_card_key">Budget  : {job?.budget} LPA</span>
         </div>
       </div>
       <div className="metadata_section">

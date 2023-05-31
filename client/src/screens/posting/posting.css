@@ -49,6 +49,7 @@
   background-color: #ebeaea;
   padding: 10px 40px;
   border-radius: 10px;
+  padding-bottom: 20px;
 }
 
 .card_heading {
@@ -59,8 +60,10 @@
 /*------------------------- Metadata Card Container ---------------------------*/
 
 .metadata_cards_container {
-  display: grid;
-  grid-template-columns: 50% auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .metadata_section {
