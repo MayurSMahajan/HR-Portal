@@ -6,14 +6,14 @@ const CandidatesCard = ({ val }) => {
   const navigate = useNavigate();
   console.log(val)
   const navigateToProfile = () => {
-    navigate('/profile');
+    navigate(`/profile/${val.id}`);
   }
 
   const badges = ["Java", "Flutter"];
 
   return (
     <div className="candidates-card" onClick={navigateToProfile}>
-      <p>Mayur Mahajan</p>
+      <p>{val?.username}</p>
       <div className="candidate-info-container">
         {/* <p className="candidate-card-key">Experience</p>
         <p className="candidate-card-value">{val} 2 Years</p> */}

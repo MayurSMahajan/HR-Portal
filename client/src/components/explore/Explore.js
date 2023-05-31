@@ -17,13 +17,13 @@ const Explore = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [Filtered, setFiltered] = useState();
   const { user, Token } = useContext(UserContext)
-  console.log(user)
   const { HRJobs, setHRJobs, AllCandidate, setAllCandidate, FilteredCandidate, setFilteredCandidate, exploreLoading, setexploreLoading } = useContext(JobContext)
 
   const config = {
     headers: { 'x-access-token': Token }
   }
 
+  const candiate = Filtered ? Filtered : AllCandidate
 
   useEffect(() => {
     const getAllCandidate = () => {
@@ -78,7 +78,6 @@ const Explore = () => {
     // console.log(filteredWithAtleastOneMatching)
   }
 
-  console.log(exploreLoading)
   return (
     <div className="explore-body">
       <div className="explore-header">
@@ -154,7 +153,7 @@ const Explore = () => {
           /* {exploreLoading ?
             <Loading />
             :  */
-          Filtered?.length === 0 ?
+          candiate?.length === 0 ?
             <div>No match found</div>
             :
             Filtered?.map((item, index) => (

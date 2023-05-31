@@ -18,7 +18,7 @@ const ExploreCandidatesCard = ({
   };
 
   const navigateToProfile = () => {
-    // navigate("/profile");
+    navigate("/profile");
   };
 
   return (

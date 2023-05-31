@@ -28,7 +28,7 @@ function App() {
                   <Route path="/posting/:id" element={<PostingDetail />} />
                   <Route path="/posting/all" element={<AllCandidates />} />
                   <Route path="/posting/add" element={<AddPosting />} />
-                  <Route path="/profile" element={<ProfileScreen />} />
+                  <Route path="/profile/:id" element={<ProfileScreen />} />
                   <Route path="/register" element={<Auth Component={Register} />} />
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/home" element={<Main Component={Home} />} />
