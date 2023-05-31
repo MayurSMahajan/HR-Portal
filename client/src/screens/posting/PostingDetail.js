@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./posting.css";
 import PostingDetailCard from "./PostingDetailCard";
 import mockActiveJobsList from "../../mock_data/mockActiveJobsList";
@@ -6,13 +6,43 @@ import CandidatesCard from "./CandidatesCard";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate, useParams } from "react-router-dom";
-import { JobContext } from "../../context";
+import { JobContext, UserContext } from "../../context";
+import { BASE_URL } from "../../components/utils/util";
+import axios from "axios";
 
 const PostingDetail = () => {
 
   const navigate = useNavigate();
-  const { jobs, setjobs } = useContext(JobContext)
+  const { jobs, jobDetail, setjobDetail, ShortlistedCandidates, setShortlistedCandidates } = useContext(JobContext)
   const { id } = useParams()
+  const { user, Token } = useContext(UserContext)
+
+  useEffect(() => {
+    const config = {
+      headers: { 'x-access-token': Token }
+    }
+    const getJobDetail = () => {
+      axios.get(`${BASE_URL}/api/hr/getSingleJobByID/${id}`, config)
+        .then((res) => {
+          console.log(res.data.job)
+          setjobDetail(res.data.job[0])
+        })
+        .catch(err => console.log(err.message))
+    }
+    const getShortlistedCandidates = () => {
+      axios.post(`${BASE_URL}/api/hr/getshortlistedusersbyid`, { job_id: id }, config)
+        .then((res) => {
+          console.log(res.data)
+          setShortlistedCandidates(res.data.data)
+        })
+        .catch(err => console.log(err.message))
+    }
+
+    getShortlistedCandidates()
+    getJobDetail()
+
+  }, [])
+
   const navigateToAllCandidates = () => {
     navigate('/posting/all');
   }
@@ -20,6 +50,8 @@ const PostingDetail = () => {
   const navigateBack = () => {
     navigate(-1);
   }
+
+
 
   return (
     <div className="postings-page">
@@ -29,19 +61,24 @@ const PostingDetail = () => {
       </div>
 
       <div className="postings_container">
-        <PostingDetailCard job={jobs[0]} />
+        <PostingDetailCard job={jobDetail} />
         <div className="candidates-section">
           <div className="candidates-type-container">
-            <h3 className="postings-heading">Interviewed Candidates</h3>
+            <h3 className="postings-heading">Shortlisted Candidates</h3>
           </div>
           <div className="candidates-container">
-            <CandidatesCard />
-            <CandidatesCard />
-            <CandidatesCard />
+            {
+              ShortlistedCandidates && ShortlistedCandidates?.map((val, key) => (
+                <>
+                  <CandidatesCard val={val} />
+                </>
+              ))
+            }
             <ViewAllCard navigateToAllCandidates={navigateToAllCandidates} />
           </div>
           <div className="candidates-type-container">
-            <h3 className="postings-heading">Shortlisted Candidates</h3>
+            <h3 className="postings-heading">Interviewed Candidates</h3>
+
           </div>
           <div className="candidates-container">
             <CandidatesCard />

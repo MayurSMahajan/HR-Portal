@@ -7,7 +7,7 @@ import { JobContext } from "../../context";
 const JobPostingsContent = ({ jobPostingsFlag }) => {
   const postingsList = useSelector((state) => state.postings.postingsList)
   const { jobs, setjobs, } = useContext(JobContext)
-
+  console.log(jobs)
   return (
     <div className="job-postings-content-container">
       {jobPostingsFlag ? (

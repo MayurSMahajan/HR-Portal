@@ -2,9 +2,9 @@ import React from "react";
 import goldBadgeIcon from '../../assets/icons/gold_badge.png';
 import { useNavigate } from "react-router-dom";
 
-const CandidatesCard = () => {
+const CandidatesCard = ({ val }) => {
   const navigate = useNavigate();
-
+  console.log(val)
   const navigateToProfile = () => {
     navigate('/profile');
   }
@@ -15,22 +15,22 @@ const CandidatesCard = () => {
     <div className="candidates-card" onClick={navigateToProfile}>
       <p>Mayur Mahajan</p>
       <div className="candidate-info-container">
-        <p className="candidate-card-key">Experience</p>
-        <p className="candidate-card-value">2 Years</p>
+        {/* <p className="candidate-card-key">Experience</p>
+        <p className="candidate-card-value">{val} 2 Years</p> */}
       </div>
       <div className="candidate-info-container">
         <p className="candidate-card-key">Current Job</p>
-        <p className="candidate-card-value">SDE - 2 Mozilla</p>
+        <p className="candidate-card-value"> {val?.job_title}</p>
       </div>
       <div>
-      <p className="candidate-card-key">Badges</p>
-      <div className="candidate-info-container">
-        <div className="badges-container">
-          {badges.map((item) => (
-            <BadgeCard image={goldBadgeIcon} name={item}/>
-          ))}
+        <p className="candidate-card-key">Badges</p>
+        <div className="candidate-info-container">
+          <div className="badges-container">
+            {val?.badge_list?.map((item) => (
+              <BadgeCard image={goldBadgeIcon} name={item} />
+            ))}
+          </div>
         </div>
-      </div>
       </div>
       <div className="candidate-card-action">
         <p className="candidate-secondary-btn">Reject</p>
@@ -40,10 +40,10 @@ const CandidatesCard = () => {
   );
 };
 
-const BadgeCard = ({image, name}) => { 
+const BadgeCard = ({ image, name }) => {
   return (
     <div className="badge-card">
-      <img src={image} alt="badge" className="badge-icon"/>
+      <img src={image} alt="badge" className="badge-icon" />
       <p>{name}</p>
     </div>
   );

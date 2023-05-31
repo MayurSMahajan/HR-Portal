@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import skillList from "../../mock_data/skillList";
 import "./explore.css";
 import mockExploreCandidateList from "../../mock_data/mockExploreCandidateList";
@@ -7,12 +7,79 @@ import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSelector } from "react-redux";
 import ExploreCandidatesCard from "./ExploreCandidatesCard";
+import { BASE_URL } from "../utils/util";
+import axios from 'axios'
+import { JobContext, UserContext } from "../../context";
+import Loading from "../utils/Loader/Loading";
 
 const Explore = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const postingsList = useSelector((state) => state.postings.postingsList);
+  const [Filtered, setFiltered] = useState();
+  const { user, Token } = useContext(UserContext)
+  console.log(user)
+  const { HRJobs, setHRJobs, AllCandidate, setAllCandidate, FilteredCandidate, setFilteredCandidate, exploreLoading, setexploreLoading } = useContext(JobContext)
 
+  const config = {
+    headers: { 'x-access-token': Token }
+  }
+
+  const getAllCandidate = () => {
+
+    axios.get(`${BASE_URL}/api/profile/userdetails`, config)
+      .then((res) => {
+        console.log(res.data)
+        setAllCandidate(res.data.data)
+      })
+      .catch((err) => console.log(err.message))
+      .finally(setexploreLoading(false))
+  }
+  useEffect(() => {
+
+
+    const getJobs = () => {
+
+      axios.post(`${BASE_URL}/api/hr/joblistedbyhr`, { hr_id: user?.id }, config)
+        .then((res) => {
+          console.log(res.data)
+          setHRJobs(res.data.jobs)
+        })
+        .catch(err => console.log(err.message))
+    }
+    getJobs()
+    getAllCandidate()
+  }, [])
+
+  useEffect(() => {
+    if (selectedSkills.length === 0) {
+      getAllCandidate()
+      console.log(AllCandidate)
+      setFiltered(AllCandidate)
+    }
+  }, [selectedSkills])
+
+
+  const handelFilter = () => {
+
+    setexploreLoading(true)
+
+    axios.post(`${BASE_URL}/api/hr/filtercandidates`, { skills: selectedSkills }, config)
+      .then((res) => {
+        console.log(res.data)
+        setFilteredCandidate(res.data.data)
+        setFiltered(res.data.data)
+      })
+      .catch(err => console.log(err.message))
+      .finally(setexploreLoading(false))
+    // const filteredWithAtleastOneMatching = AllCandidate.filter(user =>
+    //   selectedSkills.some(searchString =>
+    //     user.badge_list?.includes(searchString.toLowerCase())
+    //   )
+    // );
+    // console.log(filteredWithAtleastOneMatching)
+  }
+
+  console.log(exploreLoading)
   return (
     <div className="explore-body">
       <div className="explore-header">
@@ -78,19 +145,23 @@ const Explore = () => {
         </div>
       </div>
       <div className="explore-candidate-action-parent">
-      <div className="explore-candidate-action-container">
+        <div className="explore-candidate-action-container" onClick={() => handelFilter()}>
           <p>Search </p>
           <SearchIcon />
         </div>
       </div>
       <div className="explore-candidate-listview-container">
-        {mockExploreCandidateList.map((item) => (
-          <ExploreCandidatesCard
-            key={item.id}
-            {...item}
-            postingsList={postingsList}
-          />
-        ))}
+        {exploreLoading ?
+          <Loading />
+          : Filtered?.length === 0 ?
+            <div>No match found</div>
+            :
+            Filtered?.map((item, index) => (
+              <ExploreCandidatesCard
+                key={item.id}
+                candidate={item}
+              />
+            ))}
       </div>
     </div>
   );
