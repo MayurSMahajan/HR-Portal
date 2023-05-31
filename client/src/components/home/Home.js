@@ -21,7 +21,7 @@ const Home = () => {
       const config = {
         headers: { 'x-access-token': Token }
       }
-      axios.get(`${BASE_URL}/api/hr/joblisted`, config)
+      axios.post(`${BASE_URL}/api/hr/joblistedbyhr`, { hr_id: user?.id }, config)
         .then((res) => {
           console.log(res.data)
           setjobs(res.data.jobs)
@@ -38,7 +38,7 @@ const Home = () => {
           <h2 className="job-postings-heading">Your Job Postings</h2>
           <p className="job-postings-add-posting" onClick={navigateToNewPosting}>New Posting</p>
         </div>
-        
+
         <div className="job-postings-content">
           <JobPostingsContent jobPostingsFlag={true} />
         </div>
