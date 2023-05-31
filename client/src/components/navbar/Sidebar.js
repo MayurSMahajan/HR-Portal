@@ -78,9 +78,7 @@ const Sidebar = () => {
                             <h3>Messaging</h3>
                         </button> */}
                     </div>
-                    <div >
-                        <p>Refer and Win</p>
-                    </div>
+                    
                 </nav>
             }
         </>
