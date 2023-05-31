@@ -76,16 +76,7 @@ const PostingDetail = () => {
             }
             <ViewAllCard navigateToAllCandidates={navigateToAllCandidates} />
           </div>
-          <div className="candidates-type-container">
-            <h3 className="postings-heading">Interviewed Candidates</h3>
-
-          </div>
-          <div className="candidates-container">
-            <CandidatesCard />
-            <CandidatesCard />
-            <CandidatesCard />
-            <ViewAllCard navigateToAllCandidates={navigateToAllCandidates} />
-          </div>
+          
           <div className="secondary-btn-container" onClick={navigateToAllCandidates}>
             <span className="secondary-btn">View More Candidates</span>
           </div>
