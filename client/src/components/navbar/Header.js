@@ -1,7 +1,5 @@
 import React, { useContext } from 'react'
 import './nav.css'
-import img from '../../assets/img.jpg'
-import notification from '../../assets/icons/noticon.png'
 import { useNavigate } from 'react-router-dom'
 import { DashboardContext, UserContext } from '../../context'
 
@@ -26,8 +24,7 @@ const Header = () => {
 
                     <button className='toggle_button' onClick={() => handelSiderbar()}> ok</button>
                     <div className='header_logo' onClick={() => handelClick(0, '/')}>
-                        <img className='logo_img' src={img} alt="logo" />
-                        <p>UpLevel</p>
+                        <p className='logo-text'>🚀 UpLevel</p>
                     </div>
                 </div>
 
@@ -35,26 +32,10 @@ const Header = () => {
                 <div className='header'>
 
                     <div className='header_logo' onClick={() => handelClick(0, '/')}>
-                        <img className='logo_img' src={img} alt="logo" />
-                        <p>UpLevel</p>
-                    </div>
-                    <div className='header_right'>
-                        <img className='noti_img' src={notification} alt="notification" />
-                        {user ? <img className='profile_img' src={img} alt="profile" /> :
-                            <div>
-                                <button className='btn_1' onClick={() => navigate('/login')}>signup</button>
-                                {/* <button className='btn_2' onClick={() => navigate('/register')}>signin</button> */}
-                            </div>
-                        }
+                        <p className='logo-text'>🚀 UpLevel</p>
                     </div>
                 </div>
             }
-
-
-
-
-
-
         </>
     )
 }
