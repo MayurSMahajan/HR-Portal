@@ -9,19 +9,20 @@ const MetadataCardContainer = ({ job }) => {
     "Java",
     "React"
   ];
+  console.log("okok", job)
 
   return (
     <div className="metadata_cards_container">
       <div className="metadata_section">
         <div className="metadata_card">
           <CalendarMonthOutlinedIcon className="metadata_icon" />
-          {/* <span className="metadata_card_key">Created At  : </span> */}
-          <span className="metadata_card_value">{job.date.slice(0, 10)}</span>
+          <span className="metadata_card_key">Created At  : </span>
+          <span className="metadata_card_value">{job?.date.slice(0, 10)}</span>
         </div>
         <div className="metadata_card">
           <AccountBalanceWalletOutlinedIcon className="metadata_icon" />
-          {/* <span className="metadata_card_key">Budget  : </span> */}
-          <span className="metadata_card_value">{job.budget}</span>
+          <span className="metadata_card_key">Budget  : </span>
+          <span className="metadata_card_value">{job?.budget}</span>
         </div>
       </div>
       <div className="metadata_section">

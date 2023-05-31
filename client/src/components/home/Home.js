@@ -24,9 +24,9 @@ const Home = () => {
   useEffect(() => {
     const getAllJobs = () => {
       const config = {
-        Headers: { 'x-access-token': Token }
+        headers: { 'x-access-token': Token }
       }
-      axios.get(`${BASE_URL}/api/hr/goblistedbyhr`, config)
+      axios.get(`${BASE_URL}/api/hr/joblisted`, config)
         .then((res) => {
           console.log(res.data)
           setjobs(res.data.jobs)
