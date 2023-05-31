@@ -144,8 +144,8 @@
   border-radius: 10px;
   width: 260px;
   height: 320px;
-  display: grid;
-  grid-template-rows: 10% 10% 15% 40% auto;
+  display: flex;
+  flex-direction: column;
   border: 1.3px solid black;
   box-shadow: 4px 4px 0px #000000;
   transition: 0.25s ease-in-out;
@@ -156,19 +156,21 @@
   box-shadow: none;
 }
 
-.candidates-card p {
-  margin: 8px 4px;
+.candidates-card  .candidate-card-value {
+  margin: 4px 0px;
 }
 
 .candidate-info-container {
   display: flex;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .candidate-card-key {
   font-weight: 600;
   margin-right: 10px;
+}
+
+.candidate-card-value{
+  margin: 0px;
 }
 
 .candidate-card-action {
