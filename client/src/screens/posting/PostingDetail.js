@@ -74,7 +74,7 @@ const PostingDetail = () => {
             <h3 className="postings-heading">Shortlisted Candidates</h3>
           </div>
           <div className="candidates-container">
-            {ShortlistedCandidates.length !== 0 ? (
+            {ShortlistedCandidates?.length !== 0 ? (
               ShortlistedCandidates?.map((val, key) => (
                 <>
                   <CandidatesCard key={key} val={val} />

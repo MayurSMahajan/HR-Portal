@@ -23,14 +23,15 @@ const ExploreCandidatesCard = ({
 
   return (
     <div className="candidates-card" onClick={navigateToProfile}>
-      <p>{candidate.username}</p>
-      {/* <div className="candidate-info-container">
-        <p className="candidate-card-key">Experience</p>
-        <p className="candidate-card-value">{candidate.experience}</p>
-      </div> */}
+      <p className="candidate-card-value">{candidate?.username}</p>
       <div className="candidate-info-container">
-        <p className="candidate-card-key">Current Job</p>
-        <p className="candidate-card-value">{candidate.job_title}</p>
+        <p className="candidate-card-value">{candidate?.job_title}</p>
+      </div>
+      <div className="candidate-info-container">
+        <p className="candidate-card-value">{candidate?.company_name}</p>
+      </div>
+      <div className="candidate-info-container">
+        <p className="candidate-card-key"> {candidate?.email}</p>
       </div>
       <div>
         <p className="candidate-card-key">Badges</p>
